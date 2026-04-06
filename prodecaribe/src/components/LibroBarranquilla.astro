@@ -1,0 +1,84 @@
+---
+const HOTMART_LIBRO_PLACEHOLDER = '#comprar-libro';
+---
+
+<section id="libro" class="py-20 bg-[#FAFAFA] relative overflow-hidden">
+  <!-- Background decoration -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-1/2 right-0 w-80 h-80 bg-[#F59E0B]/5 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+  </div>
+
+  <div class="max-w-5xl mx-auto px-8 lg:px-12 relative z-10">
+    <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-[#E2E8F0]/50" data-animate>
+      <div class="grid md:grid-cols-2 gap-0">
+        
+        <!-- Image side -->
+        <div class="relative bg-gradient-to-br from-[#0C4A6E] to-[#0369A1] p-12 flex items-center justify-center min-h-[300px]">
+          <!-- IMAGEN: Portada del Libro de Barranquilla -->
+          <!-- <img src="/images/libro-barranquilla.jpg" alt="El Libro de Barranquilla" class="w-full max-w-[250px] shadow-2xl rounded-lg object-cover" /> -->
+          
+          <!-- Placeholder visual del libro -->
+          <div class="relative">
+            <div class="w-48 h-64 bg-white/10 backdrop-blur-sm rounded-lg shadow-2xl flex flex-col items-center justify-center p-6 border border-white/20">
+              <div class="text-white/60 text-xs font-medium mb-2">PRODECARIBE</div>
+              <div class="w-32 h-32 bg-gradient-to-br from-[#F59E0B] to-[#FCD34D] rounded-lg mb-3 flex items-center justify-center">
+                <span class="text-[#0A1628] text-4xl font-bold">B</span>
+              </div>
+              <div class="text-white text-sm font-medium text-center">El Libro de</div>
+              <div class="text-white text-lg font-bold text-center">Barranquilla</div>
+            </div>
+            
+            <!-- Book shadow effect -->
+            <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 w-48 h-4 bg-black/20 rounded-full blur-md"></div>
+          </div>
+          
+          <!-- Decorative elements -->
+          <div class="absolute top-4 left-4 w-16 h-16 border border-white/10 rounded-full"></div>
+          <div class="absolute bottom-4 right-4 w-24 h-24 border border-white/10 rounded-full"></div>
+        </div>
+        
+        <!-- Content side -->
+        <div class="p-10 lg:p-12 flex flex-col justify-center">
+          <span class="inline-block bg-[#F59E0B]/10 text-[#0A1628] px-4 py-1 rounded-full text-sm font-semibold mb-4 w-fit">Libro físico</span>
+          
+          <h2 class="text-3xl lg:text-4xl font-bold text-[#0A1628] mb-4 leading-tight">
+            El Libro de<br/>
+            <span class="text-[#F59E0B]">Barranquilla</span>
+          </h2>
+          
+          <p class="text-[#64748B] mb-6 leading-relaxed">
+            Una obra imperdible para conocer la historia, el desarrollo y el futuro de la ciudad más importante del Caribe colombiano.
+          </p>
+          
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-3 text-[#475569]">
+              <svg class="w-5 h-5 text-[#F59E0B] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span>Edición especial limitada</span>
+            </li>
+            <li class="flex items-center gap-3 text-[#475569]">
+              <svg class="w-5 h-5 text-[#F59E0B] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span>Envío a cualquier parte del mundo</span>
+            </li>
+            <li class="flex items-center gap-3 text-[#475569]">
+              <svg class="w-5 h-5 text-[#F59E0B] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span>Incluye sección Prodecaribe</span>
+            </li>
+          </ul>
+          
+          <a href={HOTMART_LIBRO_PLACEHOLDER} class="group inline-flex items-center justify-center gap-3 bg-[#0A1628] hover:bg-[#0C4A6E] text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl w-fit">
+            <span>Quiero mi ejemplar</span>
+            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

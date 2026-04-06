@@ -1,0 +1,151 @@
+---
+const HOTMART_PLACEHOLDER = '#comprar-combo';
+---
+
+<section class="hero relative min-h-screen flex items-center overflow-hidden">
+  <!-- IMAGEN DE FONDO: Reemplazar con imagen del Caribe colombiano -->
+  <!-- <div class="absolute inset-0 bg-[url('/images/hero-caribe.jpg')] bg-cover bg-center"></div> -->
+  
+  <!-- Overlay oscuro -->
+  <div class="absolute inset-0 bg-gradient-to-br from-[#0A1628]/95 via-[#0A1628]/90 to-[#0C4A6E]/85"></div>
+  
+  <!-- Animated mesh gradient -->
+  <div class="hero-mesh absolute inset-0 opacity-30">
+    <div class="mesh-orb mesh-1"></div>
+    <div class="mesh-orb mesh-2"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-8 lg:px-12 py-32 relative z-10 w-full">
+    <div class="max-w-4xl">
+      <!-- Badge -->
+      <div class="hero-badge inline-flex items-center gap-3 backdrop-blur-md bg-white/[0.05] border border-white/10 px-5 py-2.5 rounded-full mb-10">
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F59E0B] opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#F59E0B]"></span>
+        </span>
+        <span class="text-white/80 text-sm font-medium tracking-wide">Fundación Capital Caribe</span>
+      </div>
+
+      <!-- Headline con texto corregido -->
+      <h1 class="hero-title text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1] mb-6 tracking-tight">
+        Tu dinero<br/>
+        <span class="bg-gradient-to-r from-[#F59E0B] to-[#FCD34D] bg-clip-text text-transparent">invierte</span><br/>
+        en lo que <span class="relative inline-block">
+          <span class="relative z-10">realmente</span>
+          <span class="absolute bottom-1 left-0 w-full h-3 bg-[#F59E0B]/30 -rotate-1"></span>
+        </span> te importa
+      </h1>
+
+      <!-- Tagline nueva -->
+      <p class="hero-subtitle text-lg sm:text-xl text-white/70 mb-4 max-w-2xl leading-relaxed font-light">
+        Construimos el futuro del Caribe,<br/>
+        <span class="text-[#FCD34D] font-medium">tu legado en tu tierra natal.</span>
+      </p>
+
+      <!-- Subtext -->
+      <p class="text-white/50 mb-12 max-w-xl leading-relaxed">
+        No vendemos libros. Construimos identidad, reputación y oportunidades para el Caribe colombiano.
+      </p>
+
+      <!-- CTA Principal -->
+      <div class="hero-cta flex flex-col sm:flex-row gap-5 mb-12">
+        <a href={HOTMART_PLACEHOLDER} class="group inline-flex items-center justify-center gap-3 bg-[#F59E0B] hover:bg-[#D97706] text-white px-10 py-5 rounded-full font-bold text-lg transition-all duration-300 shadow-xl shadow-[#F59E0B]/25 hover:shadow-2xl hover:shadow-[#F59E0B]/40 hover:-translate-y-0.5">
+          <span>Ver los Combos</span>
+          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+        <a href="#combos" class="group inline-flex items-center justify-center gap-3 border border-white/20 text-white hover:bg-white/5 hover:border-white/30 px-10 py-5 rounded-full font-medium text-lg transition-all duration-300 backdrop-blur-sm">
+          <span>Conocer más</span>
+          <svg class="w-5 h-5 group-hover:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Social proof -->
+      <div class="hero-social flex items-center gap-5">
+        <div class="flex -space-x-4">
+          <!-- IMAGEN: Avatar de inversionista 1 -->
+          <!-- <img src="/images/avatar-1.jpg" class="w-12 h-12 rounded-full border-2 border-[#0A1628] object-cover" alt="Inversionista"> -->
+          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#F59E0B] to-[#D97706] border-2 border-[#0A1628]"></div>
+          
+          <!-- IMAGEN: Avatar de inversionista 2 -->
+          <!-- <img src="/images/avatar-2.jpg" class="w-12 h-12 rounded-full border-2 border-[#0A1628] object-cover" alt="Inversionista"> -->
+          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#38BDF8] to-[#0284C7] border-2 border-[#0A1628]"></div>
+          
+          <div class="w-12 h-12 rounded-full bg-white/10 border-2 border-[#0A1628] flex items-center justify-center text-white text-sm font-bold backdrop-blur-sm">+1K</div>
+        </div>
+        <div class="h-px w-8 bg-white/20"></div>
+        <p class="text-white/50 text-sm">
+          <span class="text-white font-semibold">+1,000 inversores</span> ya son parte del club
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Elegant wave divider -->
+  <div class="absolute bottom-0 left-0 w-full">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none" class="w-full h-24">
+      <path fill="#FAFAFA" d="M0,40L48,44.4C96,49,192,59,288,58.3C384,58,480,47,576,40C672,33,768,31,864,34.7C960,38,1056,47,1152,48.3C1248,49,1344,44,1392,41.3L1440,39L1440,100L0,100Z"></path>
+    </svg>
+  </div>
+</section>
+
+<style>
+  .mesh-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: float 20s ease-in-out infinite;
+  }
+
+  .mesh-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.4) 0%, transparent 70%);
+    top: -200px;
+    left: -100px;
+  }
+
+  .mesh-2 {
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.2) 0%, transparent 70%);
+    bottom: -300px;
+    right: -200px;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -30px) scale(1.05); }
+    66% { transform: translate(-20px, 20px) scale(0.95); }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+
+  // Hero entrance animation
+  const tl = gsap.timeline({ delay: 0.3 });
+
+  tl.from('.hero-badge', { opacity: 0, y: 30, duration: 0.8, ease: 'power3.out' })
+    .from('.hero-title', { opacity: 0, y: 50, duration: 1, ease: 'power3.out' }, '-=0.4')
+    .from('.hero-subtitle', { opacity: 0, y: 30, duration: 0.8, ease: 'power3.out' }, '-=0.5')
+    .from('.hero-cta a', { opacity: 0, y: 30, duration: 0.6, stagger: 0.15, ease: 'power3.out' }, '-=0.3')
+    .from('.hero-social', { opacity: 0, y: 20, duration: 0.6, ease: 'power3.out' }, '-=0.2');
+
+  // Parallax on scroll
+  const meshOrbs = document.querySelectorAll('.mesh-orb');
+  
+  gsap.to(meshOrbs, {
+    y: (i) => (i + 1) * 80,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.hero',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: 1.5,
+    },
+  });
+</script>
