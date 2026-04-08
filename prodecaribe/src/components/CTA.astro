@@ -1,0 +1,65 @@
+---
+const HOTMART_PLACEHOLDER = '#comprar-combo';
+---
+
+<section id="cta" class="py-32 bg-gradient-to-br from-[#0A1628] via-[#0C4A6E] to-[#0A1628] relative overflow-hidden">
+  <!-- Background effects -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#F59E0B]/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[#38BDF8]/10 rounded-full blur-3xl"></div>
+  </div>
+  
+  <div class="max-w-4xl mx-auto px-8 lg:px-12 relative z-10">
+    <!-- Header -->
+    <div class="text-center mb-12" data-animate>
+      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
+        Construí tu legado<br/>
+        <span class="text-[#F59E0B]">hoy</span>
+      </h2>
+      <p class="text-white/60 text-lg max-w-xl mx-auto">
+        Tu tierra te espera. No dejes que el tiempo pase sin vos.
+      </p>
+    </div>
+    
+    <!-- Main CTA -->
+    <div class="bg-white rounded-3xl p-10 lg:p-14 shadow-2xl mb-8" data-animate>
+      <div class="text-center">
+        <h3 class="text-2xl font-bold text-[#0A1628] mb-4">Tu primera inversión está a un clic</h3>
+        <p class="text-[#64748B] mb-8 max-w-lg mx-auto">
+          Elegí el combo que mejor se adapte a vos y hacé parte del movimiento que está transformando el Caribe colombiano.
+        </p>
+        
+        <a href={HOTMART_PLACEHOLDER} class="group inline-flex items-center justify-center gap-3 bg-[#F59E0B] hover:bg-[#D97706] text-white px-12 py-5 rounded-full font-bold text-xl transition-all duration-300 shadow-xl shadow-[#F59E0B]/25 hover:shadow-2xl hover:shadow-[#F59E0B]/40 hover:-translate-y-0.5">
+          <span>Ver todos los Combos</span>
+          <svg class="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+        
+        <p class="text-[#94A3B8] text-sm mt-4">Desde USD 20 · Descarga inmediata</p>
+      </div>
+    </div>
+    
+    <!-- Trust badges -->
+    <div class="flex flex-wrap justify-center gap-6" data-stagger>
+      <div class="flex items-center gap-2 text-white/50">
+        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+        </svg>
+        <span class="text-sm font-medium">Pago 100% seguro</span>
+      </div>
+      <div class="flex items-center gap-2 text-white/50">
+        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+        </svg>
+        <span class="text-sm font-medium">Hotmart plataforma oficial</span>
+      </div>
+      <div class="flex items-center gap-2 text-white/50">
+        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+        </svg>
+        <span class="text-sm font-medium">Acceso inmediato</span>
+      </div>
+    </div>
+  </div>
+</section>

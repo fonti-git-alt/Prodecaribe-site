@@ -1,0 +1,99 @@
+---
+const reasons = [
+  {
+    title: 'Seguridad Jurídica',
+    description: 'Todos los proyectos cuentan con contratos legales y respaldo notarial.',
+    icon: 'shield',
+    color: 'bg-[#0C4A6E]',
+  },
+  {
+    title: 'Equipo Local',
+    description: 'Tenemos gente en el terreno. Conocemos cada proyecto personalmente.',
+    icon: 'users',
+    color: 'bg-[#F59E0B]',
+  },
+  {
+    title: 'Transparencia Total',
+    description: 'Reportes trimestrales. Sabés en todo momento cómo está tu inversión.',
+    icon: 'chart',
+    color: 'bg-green-500',
+  },
+  {
+    title: 'Red de Contactos',
+    description: 'Conexiones con empresas, gobernantes y entrepreneurs locales.',
+    icon: 'link',
+    color: 'bg-violet-500',
+  },
+];
+
+const partners = [
+  { name: 'Camacol', emoji: '🏢' },
+  { name: 'Cotelco', emoji: '🏨' },
+  { name: 'Fedegán', emoji: '🌾' },
+  { name: 'Asinfar', emoji: '💊' },
+];
+---
+
+<section id="nosotros" class="py-32 bg-white relative overflow-hidden">
+  <!-- Background decoration -->
+  <div class="absolute top-1/2 left-0 w-[500px] h-[500px] bg-[#0C4A6E]/3 rounded-full blur-3xl transform -translate-y-1/2"></div>
+  
+  <div class="max-w-7xl mx-auto px-8 lg:px-12 relative z-10">
+    <!-- Header -->
+    <div class="text-center mb-20" data-animate>
+      <span class="inline-block bg-[#0C4A6E]/8 text-[#0C4A6E] px-5 py-2 rounded-full text-sm font-semibold mb-6">¿Por qué confiar en nosotros?</span>
+      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0A1628] mb-6 tracking-tight">
+        Tu legado está<br/>
+        <span class="text-[#F59E0B]">en buenas manos</span>
+      </h2>
+      <p class="text-[#64748B] text-lg max-w-xl mx-auto leading-relaxed">
+        Fundación Capital Caribe lleva años conectando inversionistas con las mejores oportunidades del región.
+      </p>
+    </div>
+    
+    <!-- Trust grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" data-stagger>
+      {reasons.map((reason) => (
+        <div class="text-center group">
+          <div class={`w-20 h-20 ${reason.color} rounded-2xl flex items-center justify-center mx-auto mb-6 transform transition-transform group-hover:scale-110 duration-300 shadow-lg`}>
+            {reason.icon === 'shield' && (
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            )}
+            {reason.icon === 'users' && (
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+            )}
+            {reason.icon === 'chart' && (
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+              </svg>
+            )}
+            {reason.icon === 'link' && (
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+              </svg>
+            )}
+          </div>
+          <h3 class="text-lg font-bold text-[#0A1628] mb-3">{reason.title}</h3>
+          <p class="text-[#64748B] text-sm leading-relaxed">{reason.description}</p>
+        </div>
+      ))}
+    </div>
+    
+    <!-- Partners -->
+    <div class="mt-24 pt-16 border-t border-[#E2E8F0]" data-animate>
+      <p class="text-center text-[#94A3B8] text-sm uppercase tracking-widest mb-10">Empresas y organizaciones que confían en nosotros</p>
+      <div class="flex flex-wrap justify-center items-center gap-10 lg:gap-14">
+        {partners.map((partner) => (
+          <div class="text-xl lg:text-2xl font-bold text-[#CBD5E1] hover:text-[#64748B] transition-colors cursor-default">
+            <span class="mr-3">{partner.emoji}</span>
+            <span>{partner.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

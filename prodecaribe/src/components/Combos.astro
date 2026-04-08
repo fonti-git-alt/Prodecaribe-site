@@ -1,0 +1,203 @@
+---
+const HOTMART_PLACEHOLDER = '#comprar-combo';
+
+const combos = [
+  {
+    id: 1,
+    name: 'Inversión & Empresa',
+    subtitle: 'Comercio exterior y proyección internacional',
+    description: 'Enfoque en puertos, exportaciones y logística. El Atlántico como puerta de Colombia al mundo.',
+    books: ['Atlántico Exportador 120 Años', 'Barranquilla Rumbo a la Excelencia'],
+    magazines: ['#1', '#3', '#11', '#13', '#14', '#21'],
+    price: 'USD 25',
+    popular: false,
+    // Colores basados en imagen #1: puerto, contenedores, azul/naranja
+    cardBg: 'from-[#0C4A6E] to-[#0369A1]',
+    accent: '#F59E0B',
+    accentBg: 'bg-[#F59E0B]',
+    quote: 'El Atlántico como puerta de Colombia al mundo.',
+    image: '/images/combocaribe-1.png',
+  },
+  {
+    id: 2,
+    name: 'Caribe Emprendedor',
+    subtitle: 'Marca, región & promoción territorial',
+    description: 'Destino de inversiones, negocios, turismo, cultura y bienestar. Herramienta de posicionamiento.',
+    books: ['Barranquilla 200 Años', 'Atlántico Empresarial Turístico y Cultural'],
+    magazines: ['#2', '#4', '#10', '#12', '#17', '#20'],
+    price: 'USD 23',
+    popular: false,
+    // Colores basados en imagen #2: mar azul, playa beige, blanco
+    cardBg: 'from-[#0EA5E9] to-[#0284C7]',
+    accent: '#FCD34D',
+    accentBg: 'bg-[#FCD34D]',
+    quote: 'El Caribe como territorio de oportunidades.',
+    image: '/images/combocaribe-2.png',
+  },
+  {
+    id: 3,
+    name: 'Identidad Caribe',
+    subtitle: 'Cultura & experiencia Caribe',
+    description: 'Historia, orgullo y pertenencia. Ideal para familias y colombianos en el exterior.',
+    books: ['Barranquilla Biodiverciudad de Clase Mundial'],
+    magazines: ['#8', '#15', '#19', '#22'],
+    price: 'USD 20',
+    popular: true,
+    // Colores basados en imagen #3: naranja, dorado, rojo - energía cultural
+    cardBg: 'from-[#EA580C] to-[#DC2626]',
+    accent: '#FEF3C7',
+    accentBg: 'bg-[#FEF3C7]',
+    quote: 'Conecta con tus raíces y comparte el Caribe con el mundo.',
+    image: '/images/combocaribe-3.png',
+  },
+  {
+    id: 4,
+    name: 'Caribe Sostenible',
+    subtitle: 'Biodiversidad & sostenibilidad',
+    description: 'Alineado con ODS, sostenibilidad e impacto social. Invertir en cultura es invertir en futuro.',
+    books: ['Barranquilla Biodiverciudad de Clase Mundial'],
+    magazines: ['#7', '#18', '#19'],
+    price: 'USD 30',
+    popular: false,
+    // Colores basados en imagen #4: naturaleza, verde/azul, faro rojo
+    cardBg: 'from-[#059669] to-[#0D9488]',
+    accent: '#FCD34D',
+    accentBg: 'bg-[#FCD34D]',
+    quote: 'Invertir en cultura también es invertir en sostenibilidad.',
+    image: '/images/combocaribe-4.png',
+  },
+  {
+    id: 5,
+    name: 'Legado Global',
+    subtitle: 'El Caribbean a nivel global — Premium',
+    description: 'Prestigio, diplomacia y legado histórico. Incluye certificado oficial "Embajador del Caribe Colombiano".',
+    books: ['Los 5 Libros de Oro'],
+    magazines: ['Los 22 Magazines'],
+    price: 'USD 25',
+    popular: false,
+    premium: true,
+    // Colores basados en imagen #5: oscuro tecnológico, dorado, azul profundo
+    cardBg: 'from-[#1E3A5F] to-[#0A1628]',
+    accent: '#F59E0B',
+    accentBg: 'bg-[#F59E0B]',
+    quote: 'Cuando el Caribe se convierte en legado para las futuras generaciones.',
+    image: '/images/combocaribe-5.png',
+  },
+];
+---
+
+<section id="combos" class="py-32 bg-[#FAFAFA] relative overflow-hidden">
+  <!-- Background decoration -->
+  <div class="absolute inset-0 bg-gradient-to-b from-[#FAFAFA] to-[#F1F5F9]"></div>
+  <div class="absolute top-20 right-20 w-[600px] h-[600px] bg-[#F59E0B]/5 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-20 left-20 w-[400px] h-[400px] bg-[#0C4A6E]/5 rounded-full blur-3xl"></div>
+  
+  <div class="max-w-7xl mx-auto px-8 lg:px-12 relative z-10">
+    <!-- Header -->
+    <div class="text-center mb-6" data-animate>
+      <span class="inline-block bg-[#F59E0B]/10 text-[#D97706] px-5 py-2 rounded-full text-sm font-semibold mb-6">Tu primera inversión</span>
+      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0A1628] mb-6 tracking-tight">
+        Hacé parte del club
+      </h2>
+      <p class="text-[#64748B] text-lg max-w-2xl mx-auto leading-relaxed">
+        Tu primera inversión mínima para ser parte de algo más grande. 
+        <span class="text-[#0C4A6E] font-medium">Recibís libros y revistas que construyen el futuro del Caribe.</span>
+      </p>
+    </div>
+
+    <!-- Combo Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-stagger>
+      {combos.map((combo) => (
+        <div class={`group relative bg-gradient-to-br ${combo.cardBg} rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-black/20 transition-all duration-500 flex flex-col ${combo.popular ? 'ring-4 ring-white ring-offset-4' : ''} ${combo.premium ? 'lg:col-span-1 lg:row-span-2' : ''}`}>
+          
+          <!-- Certificate Image - Prominent display with overlay -->
+          <div class="relative h-56 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-10"></div>
+            <img 
+              src={combo.image} 
+              alt={combo.name} 
+              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+            />
+          </div>
+          
+          <!-- Popular badge -->
+          {combo.popular && (
+            <div class={`absolute top-4 right-4 ${combo.accentBg} text-[#0A1628] px-3 py-1 rounded-full text-xs font-bold z-20 shadow-lg`}>
+              MEJOR VALOR
+            </div>
+          )}
+          
+          <!-- Premium badge -->
+          {combo.premium && (
+            <div class="absolute top-4 right-4 bg-gradient-to-r from-[#F59E0B] to-[#FCD34D] text-[#0A1628] px-3 py-1 rounded-full text-xs font-bold z-20 shadow-lg">
+              PREMIUM
+            </div>
+          )}
+          
+          <!-- Content -->
+          <div class="relative z-20 -mt-8 p-6">
+            <div class={`inline-block ${combo.accentBg} text-[#0A1628] px-3 py-1 rounded-full text-xs font-bold mb-3`}>
+              COMBOCARIBE #{combo.id}
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-1">{combo.name}</h3>
+            <p class="text-white/80 text-sm mb-4">{combo.subtitle}</p>
+            <p class="text-white/70 text-sm mb-6 leading-relaxed line-clamp-3">{combo.description}</p>
+            
+            <!-- Books -->
+            <div class="mb-4">
+              <div class="text-xs font-semibold text-white/60 uppercase tracking-wide mb-2">Libros</div>
+              <div class="space-y-1">
+                {combo.books.map((book) => (
+                  <div class="flex items-start gap-2 text-sm text-white/90">
+                    <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.896 1.004 13.201 1 16.25 1c1.747 0 3.007.704 3.752 1.904l-11.25 11.25c-.745.745-1.904.996-1.904 1.904V18.25"/>
+                    </svg>
+                    <span>{book}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <!-- Magazines count -->
+            <div class="mb-6">
+              <div class="text-xs font-semibold text-white/60 uppercase tracking-wide mb-2">
+                {combo.id === 5 ? 'Magazines' : 'Magazines MBCC'}
+              </div>
+              <div class="flex flex-wrap gap-1">
+                {combo.magazines.map((m) => (
+                  <span class="inline-block bg-white/20 backdrop-blur-sm px-2 py-0.5 rounded text-xs">{m}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+          
+          <!-- Price & CTA -->
+          <div class="relative z-20 p-6 bg-black/20 backdrop-blur-sm">
+            <div class="flex items-end justify-between mb-4">
+              <div>
+                <div class="text-xs text-white/60 mb-1">Precio</div>
+                <div class="text-3xl font-bold text-white">{combo.price}</div>
+              </div>
+            </div>
+            
+            <a href={`${HOTMART_PLACEHOLDER}?combo=${combo.id}`} class={`group/btn w-full flex items-center justify-center gap-2 ${combo.accentBg} hover:bg-white text-[#0A1628] py-3 rounded-xl font-semibold transition-all duration-300`}>
+              <span>Comprar ahora</span>
+              <svg class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+            
+            <p class="text-center text-white/60 text-xs mt-3 italic">"{combo.quote}"</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom note -->
+    <div class="text-center mt-12" data-animate>
+      <p class="text-[#64748B] text-sm">
+        <span class="text-[#0C4A6E] font-medium">Todos los combos incluyen:</span> descarga inmediata en PDF + acceso a la comunidad Prodecaribe
+      </p>
+    </div>
+  </div>
+</section>
