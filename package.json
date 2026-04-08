@@ -1,0 +1,22 @@
+{
+  "name": "prodecaribe-landing",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "deploy": "wrangler pages deploy dist",
+    "dev:cloudflare": "wrangler pages dev dist"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^13.1.8",
+    "@astrojs/tailwind": "^5.1.0",
+    "astro": "^6.1.5",
+    "gsap": "^3.12.5",
+    "lenis": "^1.1.1",
+    "tailwindcss": "^3.4.1"
+  }
+}
