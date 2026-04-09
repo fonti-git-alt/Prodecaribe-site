@@ -1,0 +1,187 @@
+---
+const HOTMART_PLACEHOLDER = '#comprar-combo';
+---
+
+<section class="hero relative min-h-screen flex items-center overflow-hidden">
+  <!-- Imagen de fondo: Playa del Caribe colombiano -->
+  <div class="absolute inset-0 bg-[url('https://images.pexels.com/photos/12567801/pexels-photo-12567801.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')] bg-cover bg-center"></div>
+  
+  <!-- Overlay oscuro -->
+  <div class="absolute inset-0 bg-gradient-to-br from-[#0A1628]/95 via-[#0A1628]/90 to-[#0C4A6E]/85"></div>
+  
+  <!-- Animated mesh gradient -->
+  <div class="hero-mesh absolute inset-0 opacity-30">
+    <div class="mesh-orb mesh-1"></div>
+    <div class="mesh-orb mesh-2"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-8 lg:px-12 py-32 relative z-10 w-full">
+    <div class="max-w-4xl">
+      <!-- Badge -->
+      <div class="hero-badge inline-flex items-center gap-3 backdrop-blur-md bg-white/15 border border-white/20 px-5 py-2.5 rounded-full mb-10">
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F59E0B] opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#F59E0B]"></span>
+        </span>
+        <span class="text-white/80 text-sm font-medium tracking-wide">Fundación Capital Caribe</span>
+      </div>
+
+      <!-- Headline principal -->
+      <h1 class="hero-title text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1] mb-6 tracking-tight">
+        Invierte tu dinero<br/>
+        <span class="bg-gradient-to-r from-[#F59E0B] to-[#FCD34D] bg-clip-text text-transparent">en el lugar</span><br/>
+        que <span class="relative inline-block">
+          <span class="relative z-10">te vio crecer</span>
+          <span class="absolute bottom-1 left-0 w-full h-3 bg-[#F59E0B]/30 -rotate-1"></span>
+        </span>
+      </h1>
+
+      <!-- Tagline -->
+      <p class="hero-subtitle text-lg sm:text-xl text-white/70 mb-4 max-w-2xl leading-relaxed font-light">
+        Construimos el futuro del Caribe,<br/>
+        <span class="text-[#FCD34D] font-medium">construye tu legado con nosotros.</span>
+      </p>
+
+      <!-- Subtext -->
+      <p class="text-white/50 mb-12 max-w-xl leading-relaxed">
+        Somos la comunidad de inversionistas, productores y comercializadores en el exterior más grande del Caribe Colombiano.
+      </p>
+
+      <!-- CTA Principal -->
+      <div class="hero-cta flex flex-col sm:flex-row gap-5 mb-12">
+        <a href={HOTMART_PLACEHOLDER} class="group inline-flex items-center justify-center gap-3 bg-[#F59E0B] hover:bg-[#D97706] text-white px-10 py-5 rounded-full font-bold text-lg transition-all duration-300 shadow-xl shadow-[#F59E0B]/25 hover:shadow-2xl hover:shadow-[#F59E0B]/40 hover:-translate-y-0.5">
+          <span>Ver los Combos</span>
+          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+        <a href="#combos" class="group inline-flex items-center justify-center gap-3 bg-white/20 hover:bg-white/30 border border-white/30 text-white px-10 py-5 rounded-full font-medium text-lg transition-all duration-300 backdrop-blur-md shadow-lg shadow-white/5">
+          <span>Conocer más</span>
+          <svg class="w-5 h-5 group-hover:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Social proof -->
+      <div class="hero-social flex items-center gap-5">
+        <div class="flex -space-x-4">
+          <img src="/images/avianca-logo.webp" alt="Avianca" class="w-12 h-12 rounded-full border-2 border-[#0A1628] object-contain bg-white p-1" />
+          <img src="/images/camaguey-logo.png" alt="Camagüey" class="w-12 h-12 rounded-full border-2 border-[#0A1628] object-contain bg-white p-1" />
+          <div class="w-12 h-12 rounded-full bg-[#F59E0B] border-2 border-[#0A1628] flex items-center justify-center text-white text-sm font-bold">+1K</div>
+        </div>
+        <div class="h-px w-8 bg-white/20"></div>
+        <p class="text-white/50 text-sm">
+          <span class="text-white font-semibold">+1,000 inversores</span> ya son parte del club
+        </p>
+      </div>
+      
+      <!-- Alianzas estratégicas -->
+      <div class="hero-alliances flex flex-col gap-3 mt-6">
+        <p class="text-white/40 text-xs">
+          +20 años construyendo alianzas estratégicas
+        </p>
+        <div class="flex items-center gap-4">
+          <img src="/images/avianca-logo.webp" alt="Avianca" class="h-6 w-auto opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300" />
+          <div class="h-6 w-px bg-white/10"></div>
+          <img src="/images/camaguey-logo.png" alt="Camagüey" class="h-6 w-auto opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Elegant wave divider -->
+  <div class="absolute bottom-0 left-0 w-full">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none" class="w-full h-24">
+      <path fill="#FAFAFA" d="M0,40L48,44.4C96,49,192,59,288,58.3C384,58,480,47,576,40C672,33,768,31,864,34.7C960,38,1056,47,1152,48.3C1248,49,1344,44,1392,41.3L1440,39L1440,100L0,100Z"></path>
+    </svg>
+  </div>
+</section>
+
+<style>
+  /* Animación de entrada con scale y fade */
+  @keyframes heroFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  .hero-badge {
+    animation: heroFadeIn 0.8s ease-out forwards;
+  }
+  
+  .hero-title {
+    animation: heroFadeIn 0.8s ease-out 0.2s forwards;
+    opacity: 0;
+  }
+  
+  .hero-subtitle {
+    animation: heroFadeIn 0.8s ease-out 0.4s forwards;
+    opacity: 0;
+  }
+  
+  .hero-cta {
+    animation: heroFadeIn 0.8s ease-out 0.6s forwards;
+    opacity: 0;
+  }
+  
+  .hero-social {
+    animation: heroFadeIn 0.8s ease-out 0.8s forwards;
+    opacity: 0;
+  }
+  
+  .mesh-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: float 20s ease-in-out infinite;
+  }
+
+  .mesh-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.4) 0%, transparent 70%);
+    top: -200px;
+    left: -100px;
+  }
+
+  .mesh-2 {
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.2) 0%, transparent 70%);
+    bottom: -300px;
+    right: -200px;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -30px) scale(1.05); }
+    66% { transform: translate(-20px, 20px) scale(0.95); }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Solo animamos el parallax de las partículas
+  const meshOrbs = document.querySelectorAll('.mesh-orb');
+  
+  gsap.to(meshOrbs, {
+    y: (i) => (i + 1) * 80,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.hero',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: 1.5,
+    },
+  });
+</script>
