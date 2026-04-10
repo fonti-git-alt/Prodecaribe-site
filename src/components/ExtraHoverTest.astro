@@ -1,0 +1,182 @@
+---
+const testCards = [
+  {
+    title: 'Inversión Segura',
+    description: 'Tu dinero trabaja para ti y para tu tierra.',
+    extraInfo: 'Cartera diversificada con retornos anuales del 8-12%. Sin mínimo de entrada. Gestión profesional.',
+  },
+  {
+    title: 'Comunidad Activa',
+    description: 'Conectá con otros inversores del Caribe.',
+    extraInfo: '+1,000 miembros en 15 países. Eventos mensuales, networking y oportunidades.',
+  },
+  {
+    title: 'Asesoría Personal',
+    description: 'Te acompañamos en cada paso del camino.',
+    extraInfo: 'Equipo de expertos disponible 24/7. Reports mensuales personalizados.',
+  },
+];
+---
+
+<section class="py-32 bg-[#0A1628] relative overflow-hidden">
+  <!-- Background pattern -->
+  <div class="absolute inset-0 opacity-5">
+    <div class="absolute inset-0" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 30px 30px;"></div>
+  </div>
+  
+  <div class="max-w-6xl mx-auto px-8 lg:px-12 relative z-10">
+    <div class="text-center mb-16">
+      <span class="inline-block bg-[#F59E0B]/20 text-[#F59E0B] px-5 py-2 rounded-full text-sm font-semibold mb-4">Test Zone</span>
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Extra Hover Animation</h2>
+      <p class="text-white/60 max-w-xl mx-auto">
+        Hover normal = escala suave. Hover sostenido 1s = popup flotante en capa independiente.
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {testCards.map((card, index) => (
+        <div 
+          class="hover-layer-card group relative h-48"
+          data-index={index}
+        >
+          <!-- Card base (visible siempre) -->
+          <div class="base-card absolute inset-0 bg-white/5 backdrop-blur-sm border-2 border-white/10 rounded-2xl p-6 cursor-pointer transition-all duration-300">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-[#F59E0B]/20 flex items-center justify-center flex-shrink-0">
+                <div class="w-5 h-5 rounded-full bg-[#F59E0B]"></div>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-white">{card.title}</h3>
+                <p class="text-white/60 text-sm mt-1">{card.description}</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Popup (aparece en hover sostenido) -->
+          <div class="expanded-card absolute inset-0 bg-gradient-to-br from-[#1a2744] to-[#0A1628] border-2 border-[#F59E0B]/50 rounded-2xl p-6 cursor-pointer z-10 overflow-hidden">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-[#F59E0B] flex items-center justify-center flex-shrink-0">
+                <div class="w-5 h-5 rounded-full bg-white"></div>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-white">{card.title}</h3>
+                <p class="text-white/80 text-sm mt-1">{card.description}</p>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-[#F59E0B]/30">
+              <p class="text-[#F59E0B] text-sm leading-relaxed">{card.extraInfo}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <!-- Instructions -->
+    <div class="mt-24 text-center">
+      <div class="inline-flex items-center gap-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-6 py-3">
+        <span class="flex h-2 w-2 relative">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F59E0B] opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-[#F59E0B]"></span>
+        </span>
+        <span class="text-white/60 text-sm">Hover inmediato → escala suave | Hover 1s → popup flotante</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hover-layer-card {
+    position: relative;
+    /* Dar espacio extra para el popup expandido */
+    padding-bottom: 60px;
+  }
+  
+  .base-card {
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease, border-color 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .expanded-card {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    opacity: 0;
+    transform: scale(1);
+    transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none;
+    transform-origin: top center;
+  }
+  
+  /* Hover normal: escala sutil */
+  @media (hover: hover) {
+    .hover-layer-card:hover .base-card {
+      transform: scale(1.03);
+      border-color: rgba(245, 158, 11, 0.4);
+    }
+  }
+  
+  /* Expanded state: base se esconde, popup aparece y escala */
+  .hover-layer-card.expanded .base-card {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .hover-layer-card.expanded .expanded-card {
+    opacity: 1;
+    transform: scale(1.08);
+    pointer-events: auto;
+  }
+  
+  /* Mobile: tap */
+  @media (hover: none) {
+    .hover-layer-card.active .base-card {
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    .hover-layer-card.active .expanded-card {
+      opacity: 1;
+      transform: scale(1.08);
+      pointer-events: auto;
+    }
+  }
+</style>
+
+<script>
+  const cards = document.querySelectorAll('.hover-layer-card');
+  
+  cards.forEach((card) => {
+    const el = card as HTMLElement;
+    let hoverTimer: number;
+    
+    // Desktop: hover prolongado
+    el.addEventListener('mouseenter', () => {
+      hoverTimer = window.setTimeout(() => {
+        el.classList.add('expanded');
+      }, 1000);
+    });
+    
+    el.addEventListener('mouseleave', () => {
+      clearTimeout(hoverTimer);
+      el.classList.remove('expanded');
+    });
+    
+    // Mobile: tap to toggle
+    el.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      
+      cards.forEach((c) => {
+        if (c !== el) c.classList.remove('active');
+      });
+      
+      el.classList.toggle('active');
+      
+      setTimeout(() => {
+        el.classList.remove('active');
+      }, 3000);
+    });
+  });
+</script>
