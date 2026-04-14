@@ -11,44 +11,114 @@
   </div>
   
   <div class="max-w-5xl mx-auto px-8 lg:px-12 relative z-10">
-    <!-- Header -->
-    <div class="text-center mb-16" data-animate>
-      <span class="inline-block bg-[#0C4A6E]/8 text-[#0C4A6E] px-5 py-2 rounded-full text-sm font-semibold mb-8">Lo que sentís</span>
-      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0A1628] leading-tight tracking-tight">
-        Estás lejos.<br/>
-        <span class="text-[#0C4A6E]">Tu tierra no.</span>
-      </h2>
-    </div>
-    
     <!-- Main card -->
-    <div class="bg-white rounded-3xl p-10 lg:p-14 shadow-2xl shadow-[#0A1628]/5 border border-[#E2E8F0]/50 relative overflow-hidden" data-animate>
-      <!-- Gradient accent -->
-      <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#0C4A6E] via-[#F59E0B] to-[#F59E0B]"></div>
+    <div class="problem-card bg-white rounded-3xl p-10 lg:p-14 shadow-2xl shadow-[#0A1628]/5 border border-[#E2E8F0]/50 relative overflow-hidden">
+      <!-- Reading progress bar vertical -->
+      <div class="absolute left-0 top-0 bottom-0 w-1 bg-[#E2E8F0] z-10">
+        <div class="reading-progress-vertical"></div>
+      </div>
       
       <!-- Decorative element -->
       <div class="absolute top-8 right-8 w-32 h-32 bg-gradient-to-br from-[#F59E0B]/5 to-transparent rounded-full"></div>
       
-      <div class="space-y-8 text-lg text-[#475569] relative z-10">
-        <p class="leading-loose">
-          <strong class="text-[#0C4A6E] font-semibold">Vivís en otro país.</strong> Trabajás duro. Mandás plata a casa. 
-          Pero algo no cierra...
+      <div class="space-y-6 text-lg text-[#475569] relative z-10">
+        <p class="leading-loose text-2xl lg:text-3xl font-bold text-[#0A1628] reveal-text" data-delay="0">
+          Ganaste afuera. Tu familia sigue adentro.
         </p>
-        <p class="leading-loose">
-          Tu casa en Barranquilla, Cartagena o Santa Marta sigue igual. 
-          <strong class="text-[#0C4A6E] font-semibold">Las oportunidades pasan</strong> y vos no estás ahí para aprovecharlas.
+        
+        <p class="leading-loose reveal-text" data-delay="1">
+          Trabajaste duro. Sacrificaste fiestas, diciembres, cumpleaños. Mandaste plata. Cumpliste.
         </p>
-        <p class="leading-loose">
-          Mientras tanto, tu dinero en el banco pierde valor. 
-          <strong class="text-[#F59E0B] font-semibold">¿Y si ese dinero trabajara para tu tierra... y para vos?</strong>
+        
+        <p class="leading-loose reveal-text" data-delay="2">
+          Pero hay algo que el dinero en el banco no resuelve: la sensación de que Barranquilla, Cartagena, Santa Marta, El Caribe... siguen creciendo sin ti.
+        </p>
+        
+        <p class="leading-loose reveal-text" data-delay="3">
+          <strong class="text-[#0C4A6E] font-semibold">Negocios que otros abren.</strong> Propiedades que otros compran. Oportunidades que pasan mientras tú miras desde lejos.
+        </p>
+        
+        <p class="leading-loose reveal-text" data-delay="4">
+          Tu esfuerzo merece más que una cuenta de ahorros que la inflación se come mes a mes, año a año, en silencio. <strong class="text-[#0C4A6E] font-semibold">Merece raíces. Merece retorno. Merece volver a casa con algo construido.</strong>
         </p>
       </div>
       
       <!-- Quote -->
-      <div class="mt-12 pt-8 border-t border-[#E2E8F0]">
+      <div class="mt-12 pt-8 border-t border-[#E2E8F0] reveal-text" data-delay="5">
         <p class="text-2xl lg:text-3xl font-bold text-[#0C4A6E] text-center leading-snug">
-          "El Caribe crece. <span class="text-[#F59E0B]">¿Vas a dejar que crezca sin vos?</span>"
+          El Caribe crece. <span class="text-[#F59E0B]">Haz que crezca para ti.</span>
         </p>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  .reveal-text {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  /* Hover para guiar la lectura - todo el párrafo se ilumina */
+  .reveal-text {
+    transition: background-color 0.3s ease, color 0.3s ease, padding 0.3s ease;
+    border-radius: 4px;
+    cursor: default;
+  }
+  
+  .reveal-text:hover {
+    background-color: rgba(12, 74, 110, 0.08);
+    color: #0A1628;
+  }
+  
+  .reading-progress-vertical {
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(to bottom, #0C4A6E, #FCD34D, #F59E0B);
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
+    border-radius: 0 0 2px 0;
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  
+  gsap.registerPlugin(ScrollTrigger);
+  
+  const revealTexts = document.querySelectorAll('.reveal-text');
+  
+  revealTexts.forEach((el) => {
+    const delay = parseFloat((el as HTMLElement).dataset.delay || '0') * 0.15;
+    
+    gsap.to(el, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      delay: delay,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 90%',
+        toggleActions: 'play none none none',
+      },
+    });
+  });
+  
+  // Reading progress bar vertical
+  const card = document.querySelector('.problem-card');
+  const progressBarVertical = document.querySelector('.reading-progress-vertical');
+  
+  if (card && progressBarVertical) {
+    gsap.to(progressBarVertical, {
+      height: '100%',
+      ease: 'none',
+      scrollTrigger: {
+        trigger: card,
+        start: 'top center',
+        end: 'bottom center',
+        scrub: true,
+      },
+    });
+  }
+</script>
