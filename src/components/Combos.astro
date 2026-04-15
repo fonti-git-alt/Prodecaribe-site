@@ -86,7 +86,7 @@ const combos = [
 ];
 ---
 
-<section id="combos" class="py-32 bg-[#FAFAFA] relative overflow-hidden">
+<section id="combos" class="bg-[#FAFAFA] relative overflow-hidden" style="padding: 200px 0;">
   <!-- Background decoration -->
   <div class="absolute inset-0 bg-gradient-to-b from-[#FAFAFA] to-[#F1F5F9]"></div>
   <div class="absolute top-20 right-20 w-[600px] h-[600px] bg-[#F59E0B]/5 rounded-full blur-3xl"></div>
@@ -135,9 +135,17 @@ const combos = [
               <div class={`inline-block ${combo.accentBg} text-[#0A1628] px-3 py-1 rounded-full text-xs font-bold mb-2`}>
                 COMBOCARIBE #{combo.id}
               </div>
-              <h3 class="text-xl font-bold text-white mb-1">{combo.name}</h3>
-              <p class="text-white/80 text-sm">{combo.subtitle}</p>
-            </div>
+<h3 class="text-xl font-bold text-white mb-1">{combo.name}</h3>
+                <p class="text-white/80 text-sm">{combo.subtitle}</p>
+                
+                <!-- Botón Ver más -->
+                <button class="ver-mas-btn mt-3 flex items-center gap-2 text-white/70 text-sm font-medium hover:text-white transition-colors group/btn">
+                  <span>Ver más</span>
+                  <svg class="arrow-icon w-4 h-4 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </button>
+              </div>
             
             <!-- Extras Container (aparece en hover 2) -->
             <div class="extras-container px-6 pb-6 flex flex-col">
@@ -195,23 +203,28 @@ const combos = [
 
 <style>
   /* Combo Card Hover Animation Template */
+  .combo-card {
+    z-index: 0;
+  }
+  
   .combo-card .inner-box {
     min-height: 480px;
     display: flex;
     flex-direction: column;
+    transform-origin: top center;
   }
   
   .combo-card .main-content {
-    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+    transition: transform 0.3s ease-out, opacity 0.3s ease;
   }
   
   .combo-card .extras-container {
     opacity: 0;
     visibility: hidden;
     transform: translateY(10px);
-    transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), visibility 0.3s;
+    transition: opacity 0.25s ease, transform 0.3s ease-out, visibility 0.3s;
     position: absolute;
-    bottom: 0;
+    bottom: -110px;
     left: 0;
     right: 0;
     padding: 1.5rem;
@@ -220,10 +233,14 @@ const combos = [
   
   /* Hover 1: lift */
   @media (hover: hover) {
+    .combo-card.hovering,
+    .combo-card:hover {
+      z-index: 50;
+    }
     .combo-card:hover .inner-box {
       transform: translateY(-12px);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+      transition: transform 0.3s ease-out, box-shadow 0.4s ease;
     }
   }
   
@@ -232,17 +249,22 @@ const combos = [
     z-index: 50;
   }
   .combo-card.scaled .inner-box {
-    transform: translateY(-12px) scale(1.8);
+    transform: translateY(0px) scaleX(1) scaleY(1.7);
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+    transition: transform 0.35s ease-out, box-shadow 0.4s ease;
   }
   .combo-card.scaled .main-content {
-    transform: scale(0.556);
-  }
+    transform:translateY(-75px) scaleX(1) scaleY(0.588);
+  }             
   .combo-card.scaled .extras-container {
     opacity: 1;
     visibility: visible;
-    transform: scale(0.556) translateY(0);
+    transform: translateY(-50px) scaleX(1) scaleY(0.588);
+  }
+  
+  /* Flecha rotate cuando está expandido */
+  .combo-card.scaled .arrow-icon {
+    transform: rotate(-90deg);
   }
   
   /* Mobile: tap to toggle */
@@ -253,7 +275,7 @@ const combos = [
     .combo-card.active .inner-box {
       transform: translateY(-12px) scale(1.8);
       box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+      transition: transform 0.35s ease-out, box-shadow 0.4s ease;
     }
     .combo-card.active .main-content {
       transform: scale(0.556);
@@ -273,17 +295,39 @@ const combos = [
   comboCards.forEach((card) => {
     const el = card as HTMLElement;
     let hoverTimer: number;
+    let exitTimer: number;
+    let isHovering = false;
     
     // Desktop: hover prolongado
     el.addEventListener('mouseenter', () => {
+      isHovering = true;
+      
+      // Si estaba saliendo, cancelamos la salida
+      if (exitTimer) {
+        clearTimeout(exitTimer);
+        exitTimer = 0;
+      }
+      
+      el.classList.remove('scaled');
+      el.classList.add('hovering');
+      
       hoverTimer = window.setTimeout(() => {
-        el.classList.add('scaled');
-      }, 400);
+        if (isHovering) {
+          el.classList.add('scaled');
+        }
+      }, 300);
     });
     
     el.addEventListener('mouseleave', () => {
+      isHovering = false;
       clearTimeout(hoverTimer);
       el.classList.remove('scaled');
+      
+      // Mantener z-index durante la transición
+      exitTimer = window.setTimeout(() => {
+        el.classList.remove('hovering');
+        exitTimer = 0;
+      }, 400);
     });
     
     // Mobile: tap to toggle
