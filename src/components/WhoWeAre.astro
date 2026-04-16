@@ -1,0 +1,120 @@
+---
+const stats = [
+  { number: '+20', label: 'Años de experiencia', icon: '⏱️' },
+  { number: '+1,000', label: 'Inversionistas', icon: '🤝' },
+  { number: '8', label: 'Sectores clave', icon: '📈' },
+  { number: '50+', label: 'Alianzas estratégicas', icon: '🏢' },
+];
+
+const allies = [
+  { name: 'Olimpica', emoji: '🛒' },
+  { name: 'Camagüey', emoji: '🥩' },
+  { name: 'Avianca', emoji: '✈️' },
+  { name: 'Camacol', emoji: '🏗️' },
+  { name: 'Cotelco', emoji: '🏨' },
+  { name: 'Fedegán', emoji: '🐄' },
+];
+
+const pillars = [
+  {
+    title: 'Invertir',
+    description: 'Invierte lo que has ganado en el exterior en proyectos de alto rendimiento en tu tierra.',
+    icon: '💰',
+    color: 'bg-[#F59E0B]',
+  },
+  {
+    title: 'Comerciar',
+    description: 'Comercia productos nacionales en el exterior. Lleva el Caribe al mundo.',
+    icon: '🚢',
+    color: 'bg-[#0C4A6E]',
+  },
+  {
+    title: 'Producir',
+    description: 'Produce con tus plantas o las nuestras. El Caribe tiene talento y capacidad.',
+    icon: '🏭',
+    color: 'bg-green-500',
+  },
+];
+---
+
+<section id="quienes-somos" class="py-32 bg-white relative overflow-hidden">
+  <!-- Background decoration -->
+  <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-[#0C4A6E]/3 rounded-full blur-3xl transform translate-x-1/3 -translate-y-1/3"></div>
+  <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#F59E0B]/5 rounded-full blur-3xl transform -translate-x-1/3 translate-y-1/3"></div>
+
+  <div class="max-w-7xl mx-auto px-8 lg:px-12 relative z-10">
+    <!-- Header -->
+    <div class="text-center mb-20" data-animate>
+      <span class="inline-block bg-[#0C4A6E]/8 text-[#0C4A6E] px-5 py-2 rounded-full text-sm font-semibold mb-6">¿Quiénes somos?</span>
+      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0A1628] mb-6 tracking-tight">
+        La red más grande del<br/>
+        <span class="text-[#F59E0B]">Caribe Colombiano</span>
+      </h2>
+      <p class="text-[#64748B] text-lg max-w-2xl mx-auto leading-relaxed">
+        Somos la red de inversionistas, comerciantes y productores más grande del Caribe colombiano. 
+        Con más de 20 años de experiencia conectando oportunidades con personas.
+      </p>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-20" data-stagger>
+      {stats.map((stat) => (
+        <div class="bg-gradient-to-br from-[#FAFAFA] to-white rounded-2xl p-6 border border-[#E2E8F0] hover:border-[#0C4A6E]/20 hover:shadow-lg hover:shadow-[#0C4A6E]/5 transition-all duration-300 text-center">
+          <div class="text-4xl mb-3">{stat.icon}</div>
+          <div class="text-3xl font-bold text-[#0A1628] mb-1">{stat.number}</div>
+          <div class="text-sm text-[#64748B]">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Mission/Pillars -->
+    <div class="grid md:grid-cols-3 gap-8 mb-20" data-stagger>
+      {pillars.map((pillar) => (
+        <div class="bg-white rounded-2xl p-8 border border-[#E2E8F0] hover:border-[#0C4A6E]/20 hover:shadow-xl hover:shadow-[#0C4A6E]/5 transition-all duration-300 group">
+          <div class={`w-16 h-16 ${pillar.color} rounded-2xl flex items-center justify-center mb-6 text-3xl transform group-hover:scale-110 transition-transform duration-300`}>
+            {pillar.icon}
+          </div>
+          <h3 class="text-xl font-bold text-[#0A1628] mb-3">{pillar.title}</h3>
+          <p class="text-[#64748B] leading-relaxed">{pillar.description}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Call to action -->
+    <div class="bg-gradient-to-br from-[#0A1628] to-[#0C4A6E] rounded-3xl p-10 lg:p-14 relative overflow-hidden" data-animate>
+      <!-- Background decoration -->
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-0 left-0 w-64 h-64 bg-[#F59E0B] rounded-full blur-3xl"></div>
+      </div>
+
+      <div class="relative z-10 text-center">
+        <h3 class="text-2xl lg:text-3xl font-bold text-white mb-6">
+          ¿Eres barranquillero, cartagenero, samario o caribeño viviendo en el exterior?
+        </h3>
+        <p class="text-white/70 max-w-2xl mx-auto mb-8 leading-relaxed">
+          Entonces esta red es para ti. Forma parte del crecimiento de tu región. 
+          Invierte, comercia o produce. El Caribe tiene un lugar para vos.
+        </p>
+        <a href="#combos" class="inline-flex items-center gap-3 bg-[#F59E0B] hover:bg-[#D97706] text-white px-10 py-5 rounded-full font-bold text-lg transition-all duration-300 shadow-xl shadow-[#F59E0B]/25 hover:shadow-2xl hover:shadow-[#F59E0B]/40 hover:-translate-y-0.5">
+          <span>Quiero hacer parte</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Allies -->
+    <div class="mt-16 pt-16 border-t border-[#E2E8F0]" data-animate>
+      <p class="text-center text-[#94A3B8] text-sm uppercase tracking-widest mb-10">Empresas que confían en nosotros</p>
+      <div class="flex flex-wrap justify-center items-center gap-8 lg:gap-12">
+        {allies.map((ally) => (
+          <div class="text-xl lg:text-2xl font-bold text-[#CBD5E1] hover:text-[#64748B] transition-colors cursor-default flex items-center gap-3">
+            <span class="text-2xl">{ally.emoji}</span>
+            <span>{ally.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
