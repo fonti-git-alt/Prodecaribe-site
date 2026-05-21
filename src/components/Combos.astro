@@ -138,9 +138,9 @@ const combos = [
 <h3 class="text-xl font-bold text-white mb-1">{combo.name}</h3>
                 <p class="text-white/80 text-sm">{combo.subtitle}</p>
 
-                <!-- Precio visible sin hover — mismo nivel que Ver más -->
+                <!-- Precio + Ver más — mismo nivel, paralelos -->
                 <div class="flex items-center justify-between mt-3">
-                  <div class="text-2xl font-bold text-white">{combo.price}</div>
+                  <div class="inline-price text-2xl font-bold text-white">{combo.price}</div>
                   <button class="ver-mas-btn flex items-center gap-2 text-white/70 text-sm font-medium hover:text-white transition-colors group/btn">
                     <span>Ver más</span>
                     <svg class="arrow-icon w-4 h-4 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -148,6 +148,7 @@ const combos = [
                     </svg>
                   </button>
                 </div>
+
               </div>
             
             <!-- Extras Container (aparece en hover 2) -->
@@ -239,6 +240,12 @@ const combos = [
     .combo-card.hovering,
     .combo-card:hover {
       z-index: 50;
+    }
+    .combo-card.hovering .inline-price,
+    .combo-card:hover .inline-price {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s;
     }
     .combo-card:hover .inner-box {
       transform: translateY(-12px);
