@@ -42,7 +42,7 @@ const combos = [
     books: ['Barranquilla Biodiverciudad de Clase Mundial'],
     magazines: ['#8', '#15', '#19', '#22'],
     price: 'USD $20',
-    popular: true,
+    popular: false,
     // Colores basados en imagen #3: naranja, dorado, rojo - energía cultural
     cardBg: 'from-[#EA580C] to-[#DC2626]',
     accent: '#FEF3C7',
@@ -187,7 +187,7 @@ const combos = [
                   href={HOTMART_PLACEHOLDER}
                   class={`${combo.accentBg} text-[#0A1628] px-4 py-2 rounded-lg text-sm font-bold hover:opacity-90 transition-opacity`}
                 >
-                  Comprar
+                  Hacerse miembro
                 </a>
               </div>
             </div>
@@ -219,14 +219,14 @@ const combos = [
   }
   
   .combo-card .main-content {
-    transition: transform 0.3s ease-out, opacity 0.3s ease;
+    transition: transform 0.35s ease-in-out, opacity 0.3s ease;
   }
   
   .combo-card .extras-container {
     opacity: 0;
     visibility: hidden;
     transform: translateY(10px);
-    transition: opacity 0.25s ease, transform 0.3s ease-out, visibility 0.3s;
+    transition: opacity 0.25s ease, transform 0.35s ease-in-out, visibility 0.3s;
     position: absolute;
     bottom: -110px;
     left: 0;
@@ -248,9 +248,9 @@ const combos = [
       transition: opacity 0.25s ease, visibility 0.25s;
     }
     .combo-card:hover .inner-box {
-      transform: translateY(-12px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease-out, box-shadow 0.4s ease;
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+      transition: transform 0.3s ease-in-out, box-shadow 0.4s ease;
     }
   }
   
@@ -261,15 +261,17 @@ const combos = [
   .combo-card.scaled .inner-box {
     transform: translateY(0px) scaleX(1) scaleY(1.7);
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-    transition: transform 0.35s ease-out, box-shadow 0.4s ease;
+    transition: transform 0.35s ease-in-out, box-shadow 0.4s ease;
   }
   .combo-card.scaled .main-content {
     transform:translateY(-75px) scaleX(1) scaleY(0.588);
+    transition: transform 0.35s ease-in-out;
   }             
   .combo-card.scaled .extras-container {
     opacity: 1;
     visibility: visible;
     transform: translateY(-50px) scaleX(1) scaleY(0.588);
+    transition: transform 0.35s ease-in-out, opacity 0.25s ease, visibility 0.25s;
   }
   
   /* Flecha rotate cuando está expandido */
