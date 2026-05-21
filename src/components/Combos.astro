@@ -109,7 +109,7 @@ const combos = [
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-stagger>
       {combos.map((combo, index) => (
         <div class="combo-card group relative bg-gradient-to-br rounded-2xl cursor-pointer overflow-visible" data-card-bg={combo.cardBg} data-card-accent={combo.accent} data-card-accent-bg={combo.accentBg}>
-          <div class={`inner-box relative bg-gradient-to-br ${combo.cardBg} rounded-2xl overflow-hidden transition-all duration-500 ${combo.popular ? 'ring-4 ring-white ring-offset-4' : ''} ${combo.premium ? 'lg:row-span-2' : ''}`} style="min-height: 340px;">
+           <div class={`inner-box relative bg-gradient-to-br ${combo.cardBg} rounded-2xl transition-all duration-500 ${combo.popular ? 'ring-4 ring-white ring-offset-4' : ''} ${combo.premium ? 'lg:row-span-2' : ''}`} style="min-height: 340px;">
             
             <!-- Main Content -->
             <div class="main-content p-6 flex flex-col">
@@ -139,9 +139,9 @@ const combos = [
                 <p class="text-white/80 text-sm">{combo.subtitle}</p>
 
                 <!-- Precio + Ver más — mismo nivel, paralelos -->
-                <div class="flex items-center justify-between mt-3">
+                <div class="ver-mas-wrapper flex items-center justify-between mt-3 relative">
                   <div class="inline-price text-2xl font-bold text-white">{combo.price}</div>
-                  <button class="ver-mas-btn flex items-center gap-2 text-white/70 text-sm font-medium hover:text-white transition-colors group/btn">
+                  <button class="ver-mas-btn flex items-center gap-2 text-white/70 text-sm font-medium hover:text-white transition-colors group/btn" style="transition: transform 400ms ease-in-out;">
                     <span>Ver más</span>
                     <svg class="arrow-icon w-4 h-4 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 9l7 7 7-7"/>
@@ -278,6 +278,15 @@ const combos = [
   .combo-card.scaled .arrow-icon {
     transform: rotate(180deg);
   }
+
+  /* Ver más se desliza suavemente hacia la izquierda en hold hover */
+  .ver-mas-btn {
+    transition: transform 400ms ease-in-out;
+  }
+  .combo-card.scaled .ver-mas-btn {
+    transform: translateX(-310%);
+  }
+
   
   /* Mobile: tap to toggle */
   @media (hover: none) {
