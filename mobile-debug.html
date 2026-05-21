@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    /* Mobile simulation: (hover: none) is our @media query condition */
+    /* Combined state on active (mobile tap): */
+    /* combo-card.active .inner-box { transform: translateY(-12px) scale(1.8); } */
+    /* combo-card.active .extras-container { transform: scale(0.556) translateY(0); visibility: visible; } */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body { background: #FAFAFA; padding: 40px; font-family: sans-serif; }
+    
+    /* Mobile: (hover: none) */
+    .combo-card.active {
+      z-index: 50;
+    }
+    .combo-card.active .inner-box {
+      transform: translateY(-12px) scale(1.8);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    }
+    .combo-card.active .main-content {
+      transform: scale(0.556);
+    }
+    .combo-card.active .extras-container {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(0.556) translateY(0);
+    }
+
+    .combo-card {
+      width: 340px; /* mobile width */
+      z-index: 0;
+      transform-origin: top center;
+      background: #0C4A6E;
+      border-radius: 16px;
+      overflow: visible;
+      cursor: pointer;
+      margin: 0 auto 200px;
+    }
+    .inner-box {
+      position: relative;
+      min-height: 340px;
+      display: flex;
+      flex-direction: column;
+    }
+    .main-content {
+      padding: 24px;
+    }
+    .main-content .hero-img {
+      height: 192px; border-radius: 8px; background: #0369A1; display: flex; align-items: center; justify-content: center; color: white; font-size: 14px; margin-bottom: 16px;
+    }
+    .main-content h3 { color: white; font-size: 18px; margin-bottom: 4px; }
+    .main-content p { color: rgba(255,255,255,0.8); font-size: 14px; margin-bottom: 12px; }
+    .main-content .ver-mas-wrapper { display: flex; justify-content: space-between; align-items: center; }
+    .main-content .inline-price { color: white; font-size: 24px; font-weight: bold; }
+    .main-content .ver-mas-btn { color: rgba(255,255,255,0.7); font-size: 14px; }
+
+    .extras-container {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      position: absolute;
+      bottom: -110px;
+      left: 0;
+      right: 0;
+      padding: 24px;
+      background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.4));
+    }
+    .extras-container .desc { color: rgba(255,255,255,0.8); font-size: 14px; margin-bottom: 12px; }
+    .extras-container .book-item { color: rgba(255,255,255,0.9); font-size: 12px; margin-bottom: 4px; }
+    .extras-container .mag-tag { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); padding: 2px 8px; border-radius: 4px; font-size: 12px; margin-right: 4px; display: inline-block; margin-bottom: 4px; }
+    .extras-container .price-cta { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; }
+    .extras-container .price { color: white; font-size: 24px; font-weight: bold; }
+    .extras-container .cta { background: #F59E0B; color: #0A1628; padding: 8px 16px; border-radius: 8px; font-weight: bold; font-size: 14px; }
+  </style>
+</head>
+<body>
+
+  <h2 style="text-align: center; color: #0A1628; margin-bottom: 24px;">Mobile Debug View — active state</h2>
+  <p style="text-align: center; color: #64748B; margin-bottom: 40px;">scale(1.8), bottom: -110px, overflow: hidden; ← what is visible?</p>
+
+  <!-- SCENARIO 1: Original Combos.astro (bottom: -110px, overflow: hidden, min-height: 340px inline) -->
+  <div class="combo-card active" id="s1">
+    <div class="inner-box">
+      <div class="main-content">
+        <div class="hero-img">Card image</div>
+        <div style="background:#F59E0B; color:#0A1628; padding: 4px 12px; border-radius:999px; font-size: 10px; font-weight: bold; display: inline-block; margin-bottom: 8px;">COMBOCARIBE #1</div>
+        <h3>Inversión & Empresa</h3>
+        <p>Comercio exterior y proyección internacional</p>
+        <div class="ver-mas-wrapper">
+          <span class="inline-price">USD 25</span>
+          <button class="ver-mas-btn">Ver más ↓</button>
+        </div>
+      </div>
+      <div class="extras-container">
+        <p class="desc">Enfoque en puertos, exportaciones y logística. El Atlántico como puerta de Colombia al mundo.</p>
+        <div style="margin-bottom: 12px;">
+          <div style="color:rgba(255,255,255,0.5); font-size:10px; font-weight:bold; text-transform:uppercase; margin-bottom:4px;">Libros</div>
+          <div class="book-item">📖 Atlántico Exportador 120 Años</div>
+          <div class="book-item">📖 Barranquilla Rumbo a la Excelencia</div>
+        </div>
+        <div style="margin-bottom: 12px;">
+          <div style="color:rgba(255,255,255,0.5); font-size:10px; font-weight:bold; text-transform:uppercase; margin-bottom:4px;">Revistas</div>
+          <span class="mag-tag">#1</span><span class="mag-tag">#3</span><span class="mag-tag">#11</span><span class="mag-tag">#13</span><span class="mag-tag">#14</span><span class="mag-tag">#21</span>
+        </div>
+        <div class="price-cta">
+          <span class="price">USD 25</span>
+          <a href="#" class="cta">Hacerse miembro</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENARIO 2: v2 (bottom: 0, no overflow:hidden, no inline min-height, p-6 → pt-2) -->
+  <div class="combo-card active" style="overflow:visible; transform:none;" id="s2">
+    <div class="inner-box" style="overflow:visible;">
+      <div class="main-content" style="padding-top: 8px;">
+        <div class="hero-img">Card image</div>
+        <div style="background:#F59E0B; color:#0A1628; padding: 4px 12px; border-radius:999px; font-size: 10px; font-weight: bold; display: inline-block; margin-bottom: 8px;">COMBOCARIBE #2</div>
+        <h3>Caribe Emprendedor</h3>
+        <p>Marca, región & promoción territorial</p>
+      </div>
+      <div class="extras-container" style="bottom:0;">
+        <p class="desc">Destino de inversiones, negocios, turismo, cultura y bienestar.</p>
+        <div style="margin-bottom: 12px;">
+          <div style="color:rgba(255,255,255,0.5); font-size:10px; font-weight:bold; text-transform:uppercase; margin-bottom:4px;">Libros</div>
+          <div class="book-item">📖 Barranquilla 200 Años</div>
+        </div>
+        <div class="price-cta">
+          <span class="price">USD 23</span>
+          <a href="#" class="cta">Comprar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
