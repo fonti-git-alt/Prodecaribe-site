@@ -115,23 +115,41 @@ const combos = [
    
   <div class="max-w-7xl mx-auto px-8 lg:px-12 relative z-10">
     <!-- Header -->
-    <div class="text-center mb-6" data-animate>
-      <span class="inline-block bg-[#F59E0B]/10 text-[#D97706] px-5 py-2 rounded-full text-sm font-semibold mb-6">Tu primera inversión</span>
+    <div class="text-center mb-10" data-animate>
+      <span class="inline-block bg-gradient-to-r from-[#F59E0B]/10 to-[#D97706]/10 text-[#D97706] px-6 py-2 rounded-full text-sm font-semibold mb-8 shadow-sm">Tu primera inversión</span>
       <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0A1628] mb-6 tracking-tight">
         Haz parte del club
       </h2>
-      <p class="text-[#64748B] text-lg max-w-2xl mx-auto leading-relaxed">
-        Tu primera inversión mínima para ser parte de algo más grande. 
-        <span class="text-[#0C4A6E] font-medium">Recibís libros y revistas que construyen el futuro del Caribe.</span>
-      </p>
+      <div class="max-w-3xl mx-auto">
+        <p class="text-[#64748B] text-lg mb-6 leading-relaxed">
+          Tu primera inversión mínima para ser parte de algo más grande.
+        </p>
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-center gap-4 text-base">
+          <span class="flex items-start gap-2 text-[#0C4A6E] font-medium">
+            <svg class="w-5 h-5 text-[#F59E0B] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <span>Membresía vitalicia al mayor club de inversionistas de Colombia</span>
+          </span>
+          <span class="flex items-start gap-2 text-[#0C4A6E] font-medium">
+            <svg class="w-5 h-5 text-[#F59E0B] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <span>Revistas con información clave para invertir en el Caribe</span>
+          </span>
+        </div>
+      </div>
     </div>
 
     <!-- Todos los combos incluyen -->
-    <div class="text-center mb-6" data-animate>
-      <p class="text-[#64748B] text-sm">
+    <div class="text-center mb-10" data-animate>
+      <div class="inline-flex items-center gap-2 bg-white border border-[#E2E8F0] rounded-full px-5 py-2">
+        <svg class="w-4 h-4 text-[#0C4A6E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+        </svg>
         <span class="text-[#0C4A6E] font-medium">Todos los combos incluyen:</span>
-        descarga inmediata en PDF + acceso a la comunidad Prodecaribe
-      </p>
+        <span class="text-[#64748B]">descarga inmediata en PDF + acceso a la comunidad Prodecaribe</span>
+      </div>
     </div>
 
     <!-- Combo Cards Grid -->
@@ -141,8 +159,8 @@ const combos = [
           <div class={`inner-box relative bg-gradient-to-br ${combo.cardBg} rounded-2xl overflow-hidden transition-all duration-500 ${combo.popular ? 'ring-4 ring-white ring-offset-4' : ''}`} style="min-height: 340px;">
             
             <!-- Main Content -->
-            <div class="main-content p-6 flex flex-col">
-              <div class="relative h-48 overflow-hidden rounded-lg mb-4">
+            <div class="main-content pt-[20px] pb-4 px-6 flex flex-col">
+              <div class="relative h-48 overflow-hidden rounded-lg mb-2">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-10"></div>
                 <img 
                   src={combo.image} 
@@ -168,7 +186,7 @@ const combos = [
                 <p class="text-white/80 text-sm">{combo.subtitle}</p>
 
                 <!-- Precio + Ver más — mismo nivel, paralelos -->
-                <div class="ver-mas-wrapper flex items-center justify-between mt-3 relative">
+                <div class="ver-mas-wrapper flex items-center justify-between mt-2 relative">
                   <div class="inline-price text-2xl font-bold text-white">{combo.price}</div>
                   <button class="ver-mas-btn flex items-center gap-2 text-white/70 text-sm font-medium hover:text-white transition-colors group/btn" style="transition: transform 400ms ease-in-out;">
                     <span>Ver más</span>
@@ -290,13 +308,19 @@ const combos = [
   .combo-card.scaled .main-content {
     transform: scaleX(1) scaleY(0.588);
     transition: transform 0.35s ease-in-out;
+    padding-top: 20px !important;
+    position: relative;
+    top: 20px;
+  }
+  .combo-card.scaled .main-content > div.relative.h-48 {
+    margin-top: -12px !important;
   }
   .combo-card.scaled .extras-container {
     opacity: 1;
     visibility: visible;
     transform: scaleX(1) scaleY(0.588);
     transition: transform 0.35s ease-in-out, opacity 0.25s ease, visibility 0.25s;
-    padding-top: 4px;
+    padding-top: 2px;
     padding-bottom: 4px;
   }
   
