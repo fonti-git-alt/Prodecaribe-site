@@ -155,7 +155,7 @@ const combos = [
 <!-- Combo Cards Grid -->
      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 isolate" data-stagger>
       {combos.map((combo, index) => (
-        <div class={`combo-card group relative bg-gradient-to-br rounded-2xl cursor-pointer overflow-visible ${combo.premium ? 'lg:row-span-2' : ''}`} data-card-bg={combo.cardBg} data-card-accent={combo.accent} data-card-accent-bg={combo.accentBg}>
+         <div class={`combo-card group relative bg-gradient-to-br rounded-2xl cursor-pointer overflow-visible ${combo.premium ? 'lg:row-span-2' : ''}`} data-combo-id={combo.id} data-card-bg={combo.cardBg} data-card-accent={combo.accent} data-card-accent-bg={combo.accentBg}>
           <div class={`inner-box relative bg-gradient-to-br ${combo.cardBg} rounded-2xl overflow-hidden transition-all duration-500 ${combo.popular ? 'ring-4 ring-white ring-offset-4' : ''}`} style="min-height: 340px;">
             
             <!-- Main Content -->
@@ -321,30 +321,20 @@ const combos = [
      transform: rotate(-90deg);
    }
 
-/* Mobile: tap to toggle */
-   @media (hover: none) {
-     .combo-card.active {
-       z-index: 100;
-     }
-    .combo-card.active .inner-box {
-      transform-origin: top;
-      transform: translateY(-12px) scaleY(1.65);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-      transition: transform 0.35s ease-out, box-shadow 0.4s ease;
-    }
-    .combo-card.active .main-content {
-      transform-origin: top;
-      transform: scaleY(0.606);
-    }
-    .combo-card.active .extras-container {
-      opacity: 1;
-      visibility: visible;
-      transform-origin: top;
-      transform: scaleY(0.606);
-      padding-top: 4px;
-      padding-bottom: 4px;
-    }
-  }
+/* Combo #3: reducir gap entre main-content y extras-container */
+   .combo-card[data-combo-id="3"] .extras-container {
+     bottom: -60px;
+   }
+   .combo-card[data-combo-id="3"].scaled .main-content {
+     padding-bottom: 4px;
+   }
+
+/* Ocultar inline-price en scaled (mobile no pasa por .hovering) */
+   .combo-card.scaled .inline-price {
+     opacity: 0;
+     visibility: hidden;
+     transition: opacity 0.25s ease, visibility 0.25s;
+   }
 </style>
 
 <script>
@@ -389,10 +379,10 @@ const combos = [
       }, 400);
     });
     
-    // Mobile: tap to toggle
+    // Mobile: tap to toggle scaled (mismas transforms que desktop)
     el.addEventListener('touchstart', (e) => {
       e.preventDefault();
-      el.classList.toggle('active');
+      el.classList.toggle('scaled');
     });
   });
 </script>
