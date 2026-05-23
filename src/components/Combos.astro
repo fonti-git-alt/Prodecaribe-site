@@ -94,10 +94,10 @@ const combos = [
     description: 'Una obra imperdible para conocer la historia, el desarrollo y el futuro de la ciudad más importante del Caribe colombiano.',
     books: ['El Libro de Barranquilla'],
     magazines: [],
-    price: 'USD $35',
+    price: 'USD $33',
     popular: false,
     premium: true,
-    hotmartUrl: '#',
+    hotmartUrl: 'https://pay.hotmart.com/H105966176U',
     // Color dorado claro: fondo dorado brillante con acento blanco/dorado
     cardBg: 'from-[#F59E0B] to-[#D97706]',
     accent: '#FFFBEB',
@@ -152,8 +152,8 @@ const combos = [
       </div>
     </div>
 
-    <!-- Combo Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-stagger>
+<!-- Combo Cards Grid -->
+     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 isolate" data-stagger>
       {combos.map((combo, index) => (
         <div class={`combo-card group relative bg-gradient-to-br rounded-2xl cursor-pointer overflow-visible ${combo.premium ? 'lg:row-span-2' : ''}`} data-card-bg={combo.cardBg} data-card-accent={combo.accent} data-card-accent-bg={combo.accentBg}>
           <div class={`inner-box relative bg-gradient-to-br ${combo.cardBg} rounded-2xl overflow-hidden transition-all duration-500 ${combo.popular ? 'ring-4 ring-white ring-offset-4' : ''}`} style="min-height: 340px;">
@@ -246,19 +246,21 @@ const combos = [
 </section>
 
 <style>
-  /* Combo Card Hover Animation Template */
-  .combo-card {
-    z-index: 0;
-  }
+/* Combo Card Hover Animation Template */
+   .combo-card {
+     z-index: 0;
+     will-change: transform;
+   }
   
-  .combo-card .inner-box {
-    min-height: 480px;
-    display: flex;
-    flex-direction: column;
-    transform-origin: top center;
-    position: relative;
-    overflow: hidden;
-  }
+.combo-card .inner-box {
+     min-height: 480px;
+     display: flex;
+     flex-direction: column;
+     transform-origin: top center;
+     position: relative;
+     overflow: hidden;
+     will-change: transform;
+   }
   
   .combo-card .main-content {
     transition: transform 0.35s ease-in-out, opacity 0.3s ease;
@@ -277,12 +279,12 @@ const combos = [
     background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.4));
   }
   
-  /* Hover 1: lift */
-  @media (hover: hover) {
-    .combo-card.hovering,
-    .combo-card:hover {
-      z-index: 50;
-    }
+/* Hover 1: lift */
+   @media (hover: hover) {
+     .combo-card.hovering,
+     .combo-card:hover {
+       z-index: 100;
+     }
     .combo-card.hovering .inline-price,
     .combo-card:hover .inline-price {
       opacity: 0;
@@ -296,10 +298,10 @@ const combos = [
     }
   }
   
-  /* Hover 2 (scaled): scale + content compensation */
-  .combo-card.scaled {
-    z-index: 50;
-  }
+/* Hover 2 (scaled): scale + content compensation */
+   .combo-card.scaled {
+     z-index: 100;
+   }
   .combo-card.scaled .inner-box {
     transform: translateY(-6px) scaleX(1) scaleY(1.7);
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
@@ -308,12 +310,7 @@ const combos = [
   .combo-card.scaled .main-content {
     transform: scaleX(1) scaleY(0.588);
     transition: transform 0.35s ease-in-out;
-    padding-top: 20px !important;
-    position: relative;
-    top: 20px;
-  }
-  .combo-card.scaled .main-content > div.relative.h-48 {
-    margin-top: -12px !important;
+    padding-top: 20px;
   }
   .combo-card.scaled .extras-container {
     opacity: 1;
@@ -337,11 +334,11 @@ const combos = [
     transform: translateX(-310%);
   }
 
-  /* Mobile: tap to toggle */
-  @media (hover: none) {
-    .combo-card.active {
-      z-index: 50;
-    }
+/* Mobile: tap to toggle */
+   @media (hover: none) {
+     .combo-card.active {
+       z-index: 100;
+     }
     .combo-card.active .inner-box {
       transform-origin: top;
       transform: translateY(-12px) scaleY(1.65);
