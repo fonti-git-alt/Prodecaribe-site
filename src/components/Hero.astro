@@ -15,10 +15,11 @@ const HOTMART_PLACEHOLDER = '#comprar-combo';
     <div class="mesh-orb mesh-2"></div>
   </div>
 
-  <div class="max-w-7xl mx-auto px-8 lg:px-12 py-32 relative z-10 w-full">
+  <div class="max-w-7xl mx-auto px-8 lg:px-12 pt-6 pb-24 sm:pb-16 lg:pb-10 relative z-10 w-full">
+  <!-- Mobile: pb-24 extiende el fondo hacia abajo para dar mayor espacio visual a badges y CTAs -->
     <div class="max-w-4xl">
       <!-- Badge -->
-      <div class="hero-badge inline-flex items-center gap-3 backdrop-blur-md bg-white/15 border border-white/20 px-5 py-2.5 rounded-full mb-10">
+      <div class="hero-badge inline-flex items-center gap-3 backdrop-blur-md bg-white/15 border border-white/20 px-4 py-2 rounded-full mb-6">
         <span class="relative flex h-2.5 w-2.5">
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F59E0B] opacity-75"></span>
           <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#F59E0B]"></span>
@@ -27,7 +28,7 @@ const HOTMART_PLACEHOLDER = '#comprar-combo';
       </div>
 
       <!-- Headline principal -->
-      <h1 class="hero-title text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1] mb-6 tracking-tight">
+      <h1 class="hero-title text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.05] mb-4 tracking-tight">
         Invierte<br/>
         <span class="bg-gradient-to-r from-[#F59E0B] to-[#FCD34D] bg-clip-text text-transparent">Tu dinero</span><br/>
         En el lugar que<br/>
@@ -38,25 +39,25 @@ const HOTMART_PLACEHOLDER = '#comprar-combo';
       </h1>
 
       <!-- Tagline -->
-      <p class="hero-subtitle text-lg sm:text-xl text-white/70 mb-4 max-w-2xl leading-relaxed font-light">
+      <p class="hero-subtitle text-base sm:text-lg text-white/70 mb-3 max-w-2xl leading-relaxed font-light">
         Construimos el futuro del Caribe,<br/>
         <span class="text-[#FCD34D] font-medium">construye tu legado con nosotros.</span>
       </p>
 
       <!-- Subtext -->
-      <p class="hero-community text-white/50 mb-12 max-w-xl leading-relaxed">
+      <p class="hero-community text-white/50 mb-8 max-w-xl leading-relaxed text-sm">
         Somos la comunidad de inversionistas, productores y comercializadores más grande del Caribe Colombiano. Y tu también puedes ser miembro
       </p>
 
       <!-- CTA Principal -->
-      <div class="hero-cta flex flex-col sm:flex-row gap-5 mb-12">
-        <a href={HOTMART_PLACEHOLDER} class="group inline-flex items-center justify-center gap-3 bg-[#F59E0B] hover:bg-[#D97706] text-white px-10 py-5 rounded-full font-bold text-lg transition-all duration-300 shadow-xl shadow-[#F59E0B]/25 hover:shadow-2xl hover:shadow-[#F59E0B]/40 hover:-translate-y-0.5">
+      <div class="hero-cta flex flex-col sm:flex-row gap-4 mb-8">
+        <a href={HOTMART_PLACEHOLDER} class="group inline-flex items-center justify-center gap-3 bg-[#F59E0B] hover:bg-[#D97706] text-white px-8 py-4 rounded-full font-bold text-base transition-all duration-300 shadow-xl shadow-[#F59E0B]/25 hover:shadow-2xl hover:shadow-[#F59E0B]/40 hover:-translate-y-0.5">
           <span>Quiero formar parte</span>
           <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
           </svg>
         </a>
-        <a href="#combos" class="group inline-flex items-center justify-center gap-3 bg-white/20 hover:bg-white/30 border border-white/30 text-white px-10 py-5 rounded-full font-medium text-lg transition-all duration-300 backdrop-blur-md shadow-lg shadow-white/5">
+        <a href="#combos" class="group inline-flex items-center justify-center gap-3 bg-white/20 hover:bg-white/30 border border-white/30 text-white px-8 py-4 rounded-full font-medium text-base transition-all duration-300 backdrop-blur-md shadow-lg shadow-white/5">
           <span>Conocer más</span>
           <svg class="w-5 h-5 group-hover:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
@@ -65,14 +66,14 @@ const HOTMART_PLACEHOLDER = '#comprar-combo';
       </div>
 
       <!-- Social proof -->
-      <div class="hero-social flex items-center gap-5">
-        <div class="flex -space-x-4">
-          <img src="/images/avianca-logo.webp" alt="Avianca" class="w-12 h-12 rounded-full border-2 border-[#0A1628] object-contain bg-white p-1" />
-          <img src="/images/camaguey-logo.png" alt="Camagüey" class="w-12 h-12 rounded-full border-2 border-[#0A1628] object-contain bg-white p-1" />
-          <div class="w-12 h-12 rounded-full bg-[#F59E0B] border-2 border-[#0A1628] flex items-center justify-center text-white text-sm font-bold">+99</div>
+      <div class="hero-social flex items-center gap-4">
+        <div class="flex -space-x-3">
+          <img src="/images/avianca-logo.webp" alt="Avianca" class="w-10 h-10 rounded-full border-2 border-[#0A1628] object-contain bg-white p-1" />
+          <img src="/images/camaguey-logo.png" alt="Camagüey" class="w-10 h-10 rounded-full border-2 border-[#0A1628] object-contain bg-white p-1" />
+          <div class="w-10 h-10 rounded-full bg-[#F59E0B] border-2 border-[#0A1628] flex items-center justify-center text-white text-xs font-bold">+99</div>
         </div>
-        <div class="h-px w-8 bg-white/20"></div>
-        <p class="text-white/50 text-sm">
+        <div class="h-px w-6 bg-white/20"></div>
+        <p class="text-white/50 text-xs">
           <span class="text-white font-semibold">+20 años</span> construyendo alianzas estratégicas
         </p>
       </div>

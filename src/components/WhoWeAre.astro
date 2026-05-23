@@ -1,0 +1,326 @@
+---
+const allies = [
+  { name: 'Olimpica', emoji: '🛒' },
+  { name: 'Camagüey', emoji: '🥩' },
+  { name: 'Avianca', emoji: '✈️' },
+  { name: 'Camacol', emoji: '🏗️' },
+  { name: 'Cotelco', emoji: '🏨' },
+  { name: 'Fedegán', emoji: '🐄' },
+];
+
+const pillars = [
+  {
+    title: 'Al Invertir',
+    description: 'Invierte lo que has ganado en el exterior en proyectos de alto rendimiento en tu tierra.',
+  },
+  {
+    title: 'Al Producir',
+    description: 'Produce con tus plantas o las nuestras. El Caribe tiene talento y capacidad.',
+  },
+  {
+    title: 'Al Comerciar',
+    description: 'Comercia productos nacionales en el exterior. Lleva el Caribe al mundo.',
+  },
+];
+---
+
+<section id="quienes-somos" class="bg-[#FAFAFA] relative overflow-hidden">
+  <!-- Background decoration -->
+  <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-[#0C4A6E]/3 rounded-full blur-3xl transform translate-x-1/3 -translate-y-1/3"></div>
+  <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#F59E0B]/5 rounded-full blur-3xl transform -translate-x-1/3 translate-y-1/3"></div>
+
+  <div class="max-w-7xl mx-auto px-8 lg:px-12 relative z-10">
+    <!-- Header -->
+    <div class="text-center mb-12 pt-16" data-animate>
+      <span class="inline-block bg-[#0C4A6E]/8 text-[#0C4A6E] px-5 py-2 rounded-full text-sm font-semibold mb-6">¿Quiénes somos?</span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0A1628] mb-6 tracking-tight">
+        La red de crecimiento más grande del<br/>
+        <span class="text-[#F59E0B]">Caribe Colombiano</span>
+      </h2>
+      <p class="text-[#64748B] text-lg max-w-2xl mx-auto leading-relaxed">
+        Somos la red de inversionistas, comerciantes y productores más grande del Caribe colombiano. 
+        Con más de 20 años de experiencia conectando oportunidades con personas en pos del crecimiento de la región.
+      </p>
+    </div>
+
+    <!-- Stats - Single bar -->
+    <div class="flex mb-16 justify-start lg:justify-center" data-stagger>
+      <div class="bg-gradient-to-r from-[#0A1628] to-[#0C4A6E] rounded-2xl px-10 py-5 inline-flex flex-wrap justify-start lg:justify-center items-center gap-8 lg:gap-12">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl lg:text-3xl">⏱️</span>
+          <div>
+            <div class="text-xl lg:text-2xl font-bold text-white">+20</div>
+            <div class="text-xs lg:text-sm text-white/60">Años de experiencia</div>
+          </div>
+          <div class="hidden sm:block w-px h-10 bg-white/20 mx-2"></div>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-2xl lg:text-3xl">📈</span>
+          <div>
+            <div class="text-xl lg:text-2xl font-bold text-white">8</div>
+            <div class="text-xs lg:text-sm text-white/60">Sectores clave</div>
+          </div>
+          <div class="hidden sm:block w-px h-10 bg-white/20 mx-2"></div>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-2xl lg:text-3xl">🏢</span>
+          <div>
+            <div class="text-xl lg:text-2xl font-bold text-white">50+</div>
+            <div class="text-xs lg:text-sm text-white/60">Alianzas estratégicas</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Parallax Pillars Section -->
+<section id="pillars-parallax" class="relative">
+  <!-- Sticky container -->
+  <div class="sticky top-0 h-screen flex items-center overflow-hidden">
+    <!-- Background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#0A1628] to-[#0C4A6E]">
+      <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-[#0C4A6E]/30 rounded-full blur-3xl transform translate-x-1/3 -translate-y-1/3"></div>
+      <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#F59E0B]/10 rounded-full blur-3xl transform -translate-x-1/3 translate-y-1/3"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="max-w-5xl mx-auto px-8 relative z-10 w-full h-full flex flex-col justify-between py-20">
+      <!-- Slide content container -->
+      <div class="flex-1 flex items-center justify-center">
+        <!-- Slide 0: Question -->
+        <div id="slide-question" class="flex flex-col items-center text-center gap-6">
+          <p class="text-xl lg:text-2xl text-white/60 uppercase tracking-widest font-light">
+            ¿Cómo te aportamos valor?
+          </p>
+        </div>
+
+        <!-- Slide content -->
+        <div id="slide-content" class="hidden flex-col items-center text-center gap-6">
+          <div>
+            <h2 id="pillar-title" class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white mb-4">
+              Al Invertir
+            </h2>
+            <p id="pillar-description" class="text-base sm:text-lg text-white/70 max-w-lg mx-auto leading-relaxed">
+              Invierte lo que has ganado en el exterior en proyectos de alto rendimiento en tu tierra.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll indicator - always visible at bottom -->
+      <div class="flex flex-col items-center gap-2 mt-auto">
+        <svg class="w-6 h-6 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+        </svg>
+        <p class="text-white/40 text-xs uppercase tracking-widest">Desliza hacia abajo</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll spacer: 4 slides worth -->
+  <div class="h-[400vh] pointer-events-none"></div>
+</section>
+
+<!-- CTA + Allies Section -->
+<section class="bg-[#FAFAFA] relative overflow-hidden py-16">
+  <div class="max-w-7xl mx-auto px-8 lg:px-12 relative z-10">
+    <!-- Call to action -->
+    <div class="bg-gradient-to-br from-[#0A1628] to-[#0C4A6E] rounded-3xl p-10 lg:p-14 relative overflow-hidden mb-16" data-animate>
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-0 left-0 w-64 h-64 bg-[#FAFAFA] rounded-full blur-3xl"></div>
+      </div>
+
+      <div class="relative z-10 text-center">
+        <h3 class="text-2xl lg:text-3xl font-bold text-white mb-6">
+          ¿Eres caribeño viviendo en el exterior?
+        </h3>
+        <p class="text-white/70 max-w-2xl mx-auto mb-8 leading-relaxed">
+          Entonces esta red es para ti. Forma parte del crecimiento de tu región. 
+          Invierte, comercia o produce. El Caribe tiene un lugar para vos.
+        </p>
+    <a href="#combos" class="inline-flex items-center gap-3 bg-[#F59E0B] hover:bg-[#D97706] text-white px-8 py-4 rounded-full font-bold text-base transition-all duration-300 shadow-xl shadow-[#F59E0B]/25 hover:shadow-2xl hover:shadow-[#F59E0B]/40 hover:-translate-y-0.5">
+      <span>Quiero hacer parte</span>
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+      </svg>
+    </a>
+      </div>
+    </div>
+
+    <!-- Allies Marquee Carousel -->
+    <div class="pt-8 border-t border-[#E2E8F0]" data-animate>
+      <p class="text-center text-[#94A3B8] text-sm uppercase tracking-widest mb-10">Empresas que confían en nosotros</p>
+      <div class="overflow-hidden">
+        <div id="allies-marquee" class="flex space-x-12">
+          <!-- Original set -->
+          {allies.map((ally) => (
+            <div key={ally.name} class="flex-shrink-0 flex items-center gap-3 px-6 py-4">
+              <span class="text-2xl">{ally.emoji}</span>
+              <span class="text-xl lg:text-2xl font-bold text-[#CBD5E1] hover:text-[#64748B] transition-colors">{ally.name}</span>
+            </div>
+          ))}
+          <!-- Duplicate set for seamless infinite loop -->
+          {allies.map((ally) => (
+            <div key={ally.name + '-clone'} class="flex-shrink-0 flex items-center gap-3 px-6 py-4">
+              <span class="text-2xl">{ally.emoji}</span>
+              <span class="text-xl lg:text-2xl font-bold text-[#CBD5E1] hover:text-[#64748B] transition-colors">{ally.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <style>
+    @keyframes slideDown {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+    
+    svg:first-child {
+      animation: slideDown 1.5s ease-in-out infinite;
+    }
+  </style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ============================================
+  // CONFIGURACIÓN DEL CARRUSEL DE ALIADOS (variables separadas)
+  // ============================================
+  const MARQUEE_SPEED = 8; 
+  // ↑ VELOCIDAD VISUAL: segundos que tarda en pasar un set completo de empresas.
+  //   Más bajo = más rápido. Este valor NO controla "cuándo reinicia" de forma visible.
+  //
+  // El "reinicio" del bucle ya no genera salto porque:
+  //   - Renderizamos la lista 2 veces (original + clon)
+  //   - GSAP hace un bucle infinito (repeat: -1) moviendo exactamente el ancho de un set.
+  //   → El movimiento es continuo y sin cortes.
+  //
+  // Si en el futuro quieres que "después de X pasadas completas" haga algo (pausa, cambio, etc.),
+  // aquí es donde controlarías esa lógica de forma independiente de la velocidad.
+
+  const pillars = [
+    {
+      title: 'Al Invertir',
+      description: 'Invierte lo que has ganado en el exterior en proyectos de alto rendimiento en tu tierra.',
+    },
+    {
+      title: 'Al Producir',
+      description: 'Produce con tus plantas o las nuestras. El Caribe tiene talento y capacidad.',
+    },
+    {
+      title: 'Al Comerciar',
+      description: 'Comercia productos nacionales en el exterior. Lleva el Caribe al mundo.',
+    },
+  ];
+
+  const slideQuestion = document.getElementById('slide-question')!;
+  const slideContent = document.getElementById('slide-content')!;
+  const titleEl = document.getElementById('pillar-title')!;
+  const descriptionEl = document.getElementById('pillar-description')!;
+
+  const totalSlides = pillars.length + 1;
+  let lastSlideIndex = -1;
+
+  // ScrollTrigger for showing content slides
+  ScrollTrigger.create({
+    trigger: '#pillars-parallax',
+    start: 'top top',
+    end: 'bottom bottom',
+    scrub: 1,
+    onUpdate: (self) => {
+      const progress = self.progress;
+      const slideIndex = Math.floor(progress * totalSlides);
+      const clampedIndex = Math.min(slideIndex, totalSlides - 1);
+
+      if (clampedIndex !== lastSlideIndex) {
+        lastSlideIndex = clampedIndex;
+
+        if (clampedIndex === 0) {
+          // Question slide
+          gsap.to(slideContent, { 
+            opacity: 0, 
+            y: -20, 
+            duration: 0.3, 
+            onComplete: () => {
+              slideContent.classList.add('hidden');
+              slideContent.classList.remove('flex');
+              slideQuestion.classList.remove('hidden');
+              gsap.fromTo(slideQuestion, 
+                { opacity: 0, y: 20 }, 
+                { opacity: 1, y: 0, duration: 0.4 }
+              );
+            }
+          });
+        } else {
+          // Content slides
+          const pillar = pillars[clampedIndex - 1];
+          
+          gsap.to(slideQuestion, { 
+            opacity: 0, 
+            y: -20, 
+            duration: 0.3, 
+            onComplete: () => {
+              slideQuestion.classList.add('hidden');
+              slideContent.classList.remove('hidden');
+              slideContent.classList.add('flex');
+              
+              titleEl.textContent = pillar.title;
+              descriptionEl.textContent = pillar.description;
+              
+              // Animate in
+              gsap.fromTo(slideContent, 
+                { opacity: 0, y: 20 }, 
+                { opacity: 1, y: 0, duration: 0.4 }
+              );
+            }
+          });
+        }
+      }
+    }
+  });
+
+  // ============================================
+  // INICIALIZACIÓN DEL CARRUSEL CON GSAP
+  // ============================================
+  function initAlliesMarquee() {
+    const marqueeEl = document.getElementById('allies-marquee');
+    if (!marqueeEl) return;
+
+    // Ancho de UN set completo (mitad del contenido total porque renderizamos 2 copias)
+    let setWidth = marqueeEl.scrollWidth / 2;
+
+    let marqueeTween = gsap.to(marqueeEl, {
+      x: -setWidth,
+      duration: MARQUEE_SPEED,
+      ease: 'none',
+      repeat: -1,
+      repeatDelay: 0,
+    });
+
+    // Pausa al pasar el mouse (UX deseada)
+    marqueeEl.addEventListener('mouseenter', () => marqueeTween.pause());
+    marqueeEl.addEventListener('mouseleave', () => marqueeTween.resume());
+
+    // Recalcular en resize para que siga perfecto
+    window.addEventListener('resize', () => {
+      marqueeTween.kill();
+      gsap.set(marqueeEl, { x: 0 });
+      setWidth = marqueeEl.scrollWidth / 2;
+      marqueeTween = gsap.to(marqueeEl, {
+        x: -setWidth,
+        duration: MARQUEE_SPEED,
+        ease: 'none',
+        repeat: -1,
+      });
+    });
+  }
+
+  initAlliesMarquee();
+ </script>

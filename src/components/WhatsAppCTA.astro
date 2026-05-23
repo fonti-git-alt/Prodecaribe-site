@@ -1,26 +1,25 @@
 ---
-const WHATSAPP_PLACEHOLDER = 'https://wa.me/1234567890';
+const WHATSAPP_NUMBER = '573106212467';
+const WHATSAPP_MESSAGE = encodeURIComponent('Hola! Quiero conocer más sobre Prodecaribe');
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`;
 ---
 
-<!-- WhatsApp Floating Button - VISIBLE Y GRANDE -->
+<!-- WhatsApp Floating Button -->
 <a 
-  href={WHATSAPP_PLACEHOLDER} 
+  href={WHATSAPP_URL} 
   target="_blank" 
   rel="noopener noreferrer"
-  class="whatsapp-float group fixed bottom-8 right-8 z-50 flex items-center gap-4 bg-green-500 text-white pl-6 pr-8 py-5 rounded-full font-bold shadow-2xl shadow-green-500/40 transition-all duration-300 hover:bg-green-600 hover:shadow-3xl hover:shadow-green-500/50 hover:scale-105 border-2 border-green-400"
+  class="whatsapp-float"
   aria-label="Contactar por WhatsApp"
 >
-  <!-- Icon -->
-  <div class="relative">
-    <svg class="w-8 h-8 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.174-.149.348-.398.522-.601.174-.198.297-.297.446-.521.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297a11.815 11.815 0 00-6.949-6.949 11.89 11.89 0 00-6.949-6.949 11.853 11.853 0 00-6.949-6.949 11.815 11.815 0 00-6.949-6.949 11.89 11.89 0 00-6.949-6.949A11.815 11.815 0 001.497 0a11.89 11.89 0 00-6.949 6.949 11.815 11.815 0 00-6.949 6.949 11.89 11.89 0 00-6.949 6.949 11.815 11.815 0 00-6.949 6.949A11.89 11.89 0 001.497 24a11.815 11.815 0 006.949-6.949 11.89 11.89 0 006.949-6.949 11.815 11.815 0 006.949-6.949 11.89 11.89 0 006.949-6.949 11.815 11.815 0 006.949-6.949A11.815 11.815 0 0012.497 0a11.89 11.89 0 016.949 6.949 11.815 11.815 0 016.949 6.949 11.89 11.89 0 016.949 6.949 11.815 11.815 0 016.949 6.949A11.89 11.89 0 0012.497 24"/>
-    </svg>
-    <!-- Pulse animation -->
-    <span class="absolute inset-0 rounded-full bg-green-400 animate-ping opacity-30"></span>
-  </div>
+<!-- WhatsApp Icon - using official SVG paths -->
+  <svg class="wa-icon" viewBox="0 0 512 512" fill="none">
+    <path fill="#EDEDED" d="M0,512l35.31-128C12.359,344.276,0,300.138,0,254.234C0,114.759,114.759,0,255.117,0S512,114.759,512,254.234S395.476,512,255.117,512c-44.138,0-86.51-14.124-124.469-35.31L0,512z"/>
+    <path fill="#55CD6C" d="M137.71,430.786l7.945,4.414c32.662,20.303,70.621,32.662,110.345,32.662c115.641,0,211.862-96.221,211.862-213.628S371.641,44.138,255.117,44.138S44.138,137.71,44.138,254.234c0,40.607,11.476,80.331,32.662,113.876l5.297,7.945l-20.303,74.152L137.71,430.786z"/>
+    <path fill="#FEFEFE" d="M187.145,135.945l-16.772-0.883c-5.297,0-10.593,1.766-14.124,5.297c-7.945,7.062-21.186,20.303-24.717,37.959c-6.179,26.483,3.531,58.262,26.483,90.041s67.09,82.979,144.772,105.048c24.717,7.062,44.138,2.648,60.028-7.062c12.359-7.945,20.303-20.303,22.952-33.545l2.648-12.359c0.883-3.531-0.883-7.945-4.414-9.71l-55.614-25.6c-3.531-1.766-7.945-0.883-10.593,2.648l-22.069,28.248c-1.766,1.766-4.414,2.648-7.062,1.766c-15.007-5.297-65.324-26.483-92.69-79.448c-0.883-2.648-0.883-5.297,0.883-7.062l21.186-23.834c1.766-2.648,2.648-6.179,1.766-8.828l-25.6-57.379C193.324,138.593,190.676,135.945,187.145,135.945"/>
+  </svg>
   
-  <!-- Text -->
-  <span class="text-base font-bold whitespace-nowrap">Escríbenos</span>
+  <span class="wa-text hidden sm:inline">Escríbenos</span>
 </a>
 
 <style>
@@ -29,27 +28,85 @@ const WHATSAPP_PLACEHOLDER = 'https://wa.me/1234567890';
   }
 
   @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(40px) scale(0.8);
+    from { opacity: 0; transform: translateY(40px) scale(0.8); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  /* ── Mobile: icon-only, circular ── */
+  @media (max-width: 639px) {
+    .whatsapp-float {
+      position: fixed;
+      bottom: 1.25rem;
+      right: 1.25rem;
+      width: 56px;
+      height: 56px;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      background: #25D366;
+      border: none;
+      border-radius: 50%;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+      text-decoration: none;
+      z-index: 9999;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1);
+
+    .whatsapp-float:active {
+      transform: scale(0.92);
+      box-shadow: 0 2px 12px rgba(37, 211, 102, 0.4);
+    }
+
+    .whatsapp-float .wa-icon {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+    }
+
+    .whatsapp-float .wa-text {
+      display: none;
     }
   }
 
-  /* Mobile adjustments */
-  @media (max-width: 640px) {
+  /* ── Desktop: pill with text ── */
+  @media (min-width: 640px) {
     .whatsapp-float {
-      bottom: 1.5rem;
-      right: 1.5rem;
-      padding: 1rem 1.25rem;
-      border-radius: 50%;
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      padding: 0.875rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: #25D366;
+      border: 2px solid #5FE88A;
+      border-radius: 9999px;
+      color: white;
+      text-decoration: none;
+      box-shadow: 0 8px 32px rgba(37, 211, 102, 0.4);
+      z-index: 9999;
+      transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
     }
-    
-    .whatsapp-float span:last-of-type {
-      display: none;
+
+    .whatsapp-float:hover {
+      background: #20BD5A;
+      box-shadow: 0 12px 40px rgba(37, 211, 102, 0.5);
+      transform: scale(1.05);
+    }
+
+    .whatsapp-float .wa-icon {
+      width: 26px;
+      height: 26px;
+      flex-shrink: 0;
+    }
+
+    .whatsapp-float .wa-text {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
     }
   }
 </style>
@@ -57,7 +114,6 @@ const WHATSAPP_PLACEHOLDER = 'https://wa.me/1234567890';
 <script>
   import { gsap } from 'gsap';
 
-  // Entrance animation
   gsap.from('.whatsapp-float', {
     opacity: 0,
     y: 60,

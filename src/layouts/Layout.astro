@@ -22,7 +22,7 @@ const {
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <title>{title}</title>
   </head>
-  <body class="font-dm-sans bg-[#FAFAFA] antialiased">
+  <body class="font-dm-sans bg-[#FAFAFA] antialiased device-desktop">
     <slot />
   </body>
 </html>
@@ -44,6 +44,28 @@ const {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  /* ========================================
+   * DEVICE-SPECIFIC STYLES
+   * ========================================
+   * Use these for device-only changes:
+   *
+   * MOBILE ONLY (up to 767px):
+   *   .device-mobile .selector { }
+   *   @media (max-width: 767px) { }
+   *   .max-md\:hidden { display: none; }
+   *
+   * TABLET ONLY (768px - 1023px):
+   *   .device-tablet .selector { }
+   *   @media (min-width: 768px) and (max-width: 1023px) { }
+   *   .md\:hidden { display: none; }
+   *   .lg\:block { display: block; }
+   *
+   * DESKTOP ONLY (1024px+):
+   *   .device-desktop .selector { }
+   *   @media (min-width: 1024px) { }
+   *   .lg\:hidden { display: none; }
+   * ======================================== */
 
   /* Lenis smooth scroll */
   html.lenis,
@@ -114,6 +136,30 @@ const {
   });
 
   gsap.ticker.lagSmoothing(0);
+
+  // Device detection - adds device classes to body for conditional styling
+  function updateDeviceClass() {
+    const width = window.innerWidth;
+    const body = document.body;
+    
+    // Remove all device classes
+    body.classList.remove('device-mobile', 'device-tablet', 'device-desktop');
+    
+    // Add appropriate device class
+    if (width < 768) {
+      body.classList.add('device-mobile');
+    } else if (width < 1024) {
+      body.classList.add('device-tablet');
+    } else {
+      body.classList.add('device-desktop');
+    }
+  }
+  
+  // Initial check
+  updateDeviceClass();
+  
+  // Update on resize
+  window.addEventListener('resize', updateDeviceClass);
 
   // Animate on scroll
   const animateElements = document.querySelectorAll('[data-animate]');
