@@ -299,9 +299,10 @@ const combos = [
   }
   
 /* Hover 2 (scaled): scale + content compensation */
-   .combo-card.scaled {
-     z-index: 100;
-   }
+    .combo-card.scaled,
+    .combo-card.exiting {
+      z-index: 100;
+    }
   .combo-card.scaled .inner-box {
     transform: translateY(-6px) scaleX(1) scaleY(1.7);
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
@@ -382,7 +383,18 @@ const combos = [
     // Mobile: tap to toggle scaled (mismas transforms que desktop)
     el.addEventListener('touchstart', (e) => {
       e.preventDefault();
-      el.classList.toggle('scaled');
+      
+      if (el.classList.contains('scaled')) {
+        // Closing: mantener z-index durante la transición de salida
+        el.classList.remove('scaled');
+        el.classList.add('exiting');
+        setTimeout(() => {
+          el.classList.remove('exiting');
+        }, 400);
+      } else {
+        // Opening
+        el.classList.add('scaled');
+      }
     });
   });
 </script>
