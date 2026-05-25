@@ -16,7 +16,8 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/images/FaviconProdecaribe.png" />
+    <link rel="shortcut icon" type="image/png" href="/images/FaviconProdecaribe.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -136,6 +137,24 @@ const {
   });
 
   gsap.ticker.lagSmoothing(0);
+
+  // ============================================
+  // ANCHOR LINKS: Force Lenis scroll on all # links
+  // Fixes double-click issue when hash is already in URL
+  // ============================================
+  document.addEventListener('click', (e) => {
+    const anchor = (e.target as HTMLElement).closest('a[href^="#"]');
+    if (!anchor) return;
+
+    const href = anchor.getAttribute('href');
+    if (!href || href === '#') return;
+
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) {
+      lenis.scrollTo(target, { offset: 0, immediate: false });
+    }
+  });
 
   // Device detection - adds device classes to body for conditional styling
   function updateDeviceClass() {

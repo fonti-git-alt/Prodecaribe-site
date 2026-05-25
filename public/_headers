@@ -1,0 +1,23 @@
+# Cloudflare Pages — Headers
+# https://developers.cloudflare.com/pages/platform/headers/
+
+# Hashed assets (Astro genera nombres únicos por contenido)
+/_assets/*
+  Cache-Control: public, max-age=31536000, immutable
+  X-Content-Type-Options: nosniff
+
+# Imágenes estáticas (cambian poco)
+/images/*
+  Cache-Control: public, max-age=31536000
+  X-Content-Type-Options: nosniff
+
+# Favicon
+/favicon.svg
+  Cache-Control: public, max-age=86400
+
+# HTML: no cache en navegador, CDN cache 5 min
+/*
+  Cache-Control: public, max-age=0, s-maxage=300
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin

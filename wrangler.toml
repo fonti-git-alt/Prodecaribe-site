@@ -1,0 +1,20 @@
+# Cloudflare Pages — Prodecaribe Landing
+# https://developers.cloudflare.com/pages/
+
+name = "prodecaribe-landing"
+pages_build_output_dir = "dist"
+
+# Build configuration
+[build]
+command = "npm run build"
+
+# Compatibility flags for Workers runtime
+# (only needed if Pages Functions are added in the future)
+compatibility_date = "2026-05-25"
+
+# Environment variables for the build process
+[env.production]
+# PUBLIC_WHATSAPP_NUMBER = "573106212467"
+# PUBLIC_HOTMART_URL_1 = "https://pay.hotmart.com/L105002402I"
+# PUBLIC_HOTMART_URL_2 = "https://pay.hotmart.com/A105067978N"
+# PUBLIC_HOTMART_URL_3 = "https://pay.hotmart.com/N105067983D"

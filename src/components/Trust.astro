@@ -27,10 +27,15 @@ const reasons = [
 ];
 
 const partners = [
+  { name: 'Olimpica', emoji: '🛒' },
+  { name: 'Camagüey', emoji: '🥩' },
+  { name: 'Avianca', emoji: '✈️' },
   { name: 'Camacol', emoji: '🏢' },
   { name: 'Cotelco', emoji: '🏨' },
   { name: 'Fedegán', emoji: '🌾' },
   { name: 'Asinfar', emoji: '💊' },
+  { name: 'Bancolombia', emoji: '🏦' },
+  { name: 'Tecnoglass', emoji: '🏭' },
 ];
 ---
 
@@ -83,17 +88,63 @@ const partners = [
       ))}
     </div>
     
-    <!-- Partners -->
+    <!-- Partners Carousel -->
     <div class="mt-24 pt-16 border-t border-[#E2E8F0]" data-animate>
       <p class="text-center text-[#94A3B8] text-sm uppercase tracking-widest mb-10">Empresas y organizaciones que confían en nosotros</p>
-      <div class="flex flex-wrap justify-center items-center gap-10 lg:gap-14">
-        {partners.map((partner) => (
-          <div class="text-xl lg:text-2xl font-bold text-[#CBD5E1] hover:text-[#64748B] transition-colors cursor-default">
-            <span class="mr-3">{partner.emoji}</span>
-            <span>{partner.name}</span>
-          </div>
-        ))}
+      <div class="overflow-hidden">
+        <div id="trust-marquee" class="flex space-x-12">
+          <!-- Original set -->
+          {partners.map((partner) => (
+            <div key={partner.name} class="flex-shrink-0 flex items-center gap-3 px-6 py-4">
+              <span class="text-2xl">{partner.emoji}</span>
+              <span class="text-xl lg:text-2xl font-bold text-[#CBD5E1] hover:text-[#64748B] transition-colors">{partner.name}</span>
+            </div>
+          ))}
+          <!-- Duplicate set for seamless infinite loop -->
+          {partners.map((partner) => (
+            <div key={partner.name + '-clone'} class="flex-shrink-0 flex items-center gap-3 px-6 py-4">
+              <span class="text-2xl">{partner.emoji}</span>
+              <span class="text-xl lg:text-2xl font-bold text-[#CBD5E1] hover:text-[#64748B] transition-colors">{partner.name}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  import { gsap } from 'gsap';
+
+  function initTrustMarquee() {
+    const marqueeEl = document.getElementById('trust-marquee');
+    if (!marqueeEl) return;
+
+    let setWidth = marqueeEl.scrollWidth / 2;
+
+    let marqueeTween = gsap.to(marqueeEl, {
+      x: -setWidth,
+      duration: 12,
+      ease: 'none',
+      repeat: -1,
+      repeatDelay: 0,
+    });
+
+    marqueeEl.addEventListener('mouseenter', () => marqueeTween.pause());
+    marqueeEl.addEventListener('mouseleave', () => marqueeTween.resume());
+
+    window.addEventListener('resize', () => {
+      marqueeTween.kill();
+      gsap.set(marqueeEl, { x: 0 });
+      setWidth = marqueeEl.scrollWidth / 2;
+      marqueeTween = gsap.to(marqueeEl, {
+        x: -setWidth,
+        duration: 12,
+        ease: 'none',
+        repeat: -1,
+      });
+    });
+  }
+
+  initTrustMarquee();
+</script>

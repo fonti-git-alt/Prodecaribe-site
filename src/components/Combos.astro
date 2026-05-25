@@ -94,10 +94,10 @@ const combos = [
     description: 'Una obra imperdible para conocer la historia, el desarrollo y el futuro de la ciudad más importante del Caribe colombiano.',
     books: ['El Libro de Barranquilla'],
     magazines: [],
-    price: 'USD $35',
+    price: 'USD $33',
     popular: false,
     premium: true,
-    hotmartUrl: '#',
+    hotmartUrl: 'https://pay.hotmart.com/H105966176U',
     // Color dorado claro: fondo dorado brillante con acento blanco/dorado
     cardBg: 'from-[#F59E0B] to-[#D97706]',
     accent: '#FFFBEB',
@@ -152,10 +152,10 @@ const combos = [
       </div>
     </div>
 
-    <!-- Combo Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-stagger>
+<!-- Combo Cards Grid -->
+     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 isolate" data-stagger>
       {combos.map((combo, index) => (
-        <div class={`combo-card group relative bg-gradient-to-br rounded-2xl cursor-pointer overflow-visible ${combo.premium ? 'lg:row-span-2' : ''}`} data-card-bg={combo.cardBg} data-card-accent={combo.accent} data-card-accent-bg={combo.accentBg}>
+         <div class={`combo-card group relative bg-gradient-to-br rounded-2xl cursor-pointer overflow-visible ${combo.premium ? 'lg:row-span-2' : ''}`} data-combo-id={combo.id} data-card-bg={combo.cardBg} data-card-accent={combo.accent} data-card-accent-bg={combo.accentBg}>
           <div class={`inner-box relative bg-gradient-to-br ${combo.cardBg} rounded-2xl overflow-hidden transition-all duration-500 ${combo.popular ? 'ring-4 ring-white ring-offset-4' : ''}`} style="min-height: 340px;">
             
             <!-- Main Content -->
@@ -246,43 +246,45 @@ const combos = [
 </section>
 
 <style>
-  /* Combo Card Hover Animation Template */
-  .combo-card {
-    z-index: 0;
-  }
+/* Combo Card Hover Animation Template */
+   .combo-card {
+     z-index: 0;
+     will-change: transform;
+   }
   
-  .combo-card .inner-box {
-    min-height: 480px;
-    display: flex;
-    flex-direction: column;
-    transform-origin: top center;
-    position: relative;
-    overflow: hidden;
-  }
+.combo-card .inner-box {
+     min-height: 480px;
+     display: flex;
+     flex-direction: column;
+     transform-origin: top center;
+     position: relative;
+     overflow: hidden;
+     will-change: transform;
+   }
   
   .combo-card .main-content {
     transition: transform 0.35s ease-in-out, opacity 0.3s ease;
   }
   
-  .combo-card .extras-container {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: opacity 0.25s ease, transform 0.35s ease-in-out, visibility 0.3s;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 1.5rem;
-    background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.4));
-  }
+.combo-card .extras-container {
+     opacity: 0;
+     visibility: hidden;
+     transform: translateY(10px);
+     transition: opacity 0.25s ease, transform 0.35s ease-in-out, visibility 0.3s;
+     position: absolute;
+     bottom: -110px;
+     left: 0;
+     right: 0;
+     padding: 1.5rem;
+     background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.4));
+   }
   
-  /* Hover 1: lift */
-  @media (hover: hover) {
-    .combo-card.hovering,
-    .combo-card:hover {
-      z-index: 50;
-    }
+/* Hover 1: lift */
+   @media (hover: hover) {
+     .combo-card.hovering,
+     .combo-card:hover {
+       z-index: 100;
+     }
     .combo-card.hovering .inline-price,
     .combo-card:hover .inline-price {
       opacity: 0;
@@ -296,71 +298,44 @@ const combos = [
     }
   }
   
-  /* Hover 2 (scaled): scale + content compensation */
-  .combo-card.scaled {
-    z-index: 50;
-  }
+/* Hover 2 (scaled): scale + content compensation */
+    .combo-card.scaled,
+    .combo-card.exiting {
+      z-index: 100;
+    }
   .combo-card.scaled .inner-box {
     transform: translateY(-6px) scaleX(1) scaleY(1.7);
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
     transition: transform 0.35s ease-in-out, box-shadow 0.4s ease;
   }
-  .combo-card.scaled .main-content {
-    transform: scaleX(1) scaleY(0.588);
-    transition: transform 0.35s ease-in-out;
-    padding-top: 20px !important;
-    position: relative;
-    top: 20px;
-  }
-  .combo-card.scaled .main-content > div.relative.h-48 {
-    margin-top: -12px !important;
-  }
-  .combo-card.scaled .extras-container {
-    opacity: 1;
-    visibility: visible;
-    transform: scaleX(1) scaleY(0.588);
-    transition: transform 0.35s ease-in-out, opacity 0.25s ease, visibility 0.25s;
-    padding-top: 2px;
-    padding-bottom: 4px;
-  }
+.combo-card.scaled .main-content {
+     transform: translateY(-75px) scaleX(1) scaleY(0.588);
+   }             
+   .combo-card.scaled .extras-container {
+     opacity: 1;
+     visibility: visible;
+     transform: translateY(-50px) scaleX(1) scaleY(0.588);
+   }
   
-  /* Flecha rotate cuando está expandido */
-  .combo-card.scaled .arrow-icon {
-    transform: rotate(180deg);
-  }
+/* Flecha rotate cuando está expandido */
+   .combo-card.scaled .arrow-icon {
+     transform: rotate(-90deg);
+   }
 
-  /* Ver más se desliza suavemente hacia la izquierda en hold hover */
-  .ver-mas-btn {
-    transition: transform 400ms ease-in-out;
-  }
-  .combo-card.scaled .ver-mas-btn {
-    transform: translateX(-310%);
-  }
-
-  /* Mobile: tap to toggle */
-  @media (hover: none) {
-    .combo-card.active {
-      z-index: 50;
+/* Combo #3: ajuste de gap entre main-content y extras-container */
+    .combo-card[data-combo-id="3"] .extras-container {
+      bottom: -110px;
     }
-    .combo-card.active .inner-box {
-      transform-origin: top;
-      transform: translateY(-12px) scaleY(1.65);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-      transition: transform 0.35s ease-out, box-shadow 0.4s ease;
-    }
-    .combo-card.active .main-content {
-      transform-origin: top;
-      transform: scaleY(0.606);
-    }
-    .combo-card.active .extras-container {
-      opacity: 1;
-      visibility: visible;
-      transform-origin: top;
-      transform: scaleY(0.606);
-      padding-top: 4px;
+    .combo-card[data-combo-id="3"].scaled .main-content {
       padding-bottom: 4px;
     }
-  }
+
+/* Ocultar inline-price en scaled (mobile no pasa por .hovering) */
+   .combo-card.scaled .inline-price {
+     opacity: 0;
+     visibility: hidden;
+     transition: opacity 0.25s ease, visibility 0.25s;
+   }
 </style>
 
 <script>
@@ -390,7 +365,7 @@ const combos = [
         if (isHovering) {
           el.classList.add('scaled');
         }
-      }, 500);
+      }, 300);
     });
     
     el.addEventListener('mouseleave', () => {
@@ -405,10 +380,21 @@ const combos = [
       }, 400);
     });
     
-    // Mobile: tap to toggle
+    // Mobile: tap to toggle scaled (mismas transforms que desktop)
     el.addEventListener('touchstart', (e) => {
       e.preventDefault();
-      el.classList.toggle('active');
+      
+      if (el.classList.contains('scaled')) {
+        // Closing: mantener z-index durante la transición de salida
+        el.classList.remove('scaled');
+        el.classList.add('exiting');
+        setTimeout(() => {
+          el.classList.remove('exiting');
+        }, 400);
+      } else {
+        // Opening
+        el.classList.add('scaled');
+      }
     });
   });
 </script>
