@@ -6,14 +6,14 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "npm run build && wrangler dev",
     "astro": "astro",
-    "deploy": "wrangler pages deploy dist",
-    "dev:cloudflare": "wrangler pages dev dist"
+    "deploy": "npm run build && wrangler deploy",
+    "cf-typegen": "wrangler types"
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.1.0",
-    "astro": "^6.1.5",
+    "astro": "^6.3.7",
     "gsap": "^3.12.5",
     "lenis": "^1.1.1",
     "tailwindcss": "^3.4.1"
